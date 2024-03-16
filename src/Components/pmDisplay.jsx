@@ -116,7 +116,6 @@ function pmDisplay() {
                                 <img src={check(data.Pm)} className='w-[auto] h-[130px] border-[12px] border-white' alt={`Waiting for Image`}/>
                                 <Box sx={{
                                     pl: '30px',
-
                                 }}>
                                     <Typography variant='h3' sx={{
                                         fontSize: '20px',
