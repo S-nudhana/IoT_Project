@@ -28,7 +28,7 @@ function Footer() {
                     color:'whitesmoke',
                     fontSize: {xs: "12px", md: "14px", lg: '16px'},
                 }}>
-                    <a href="" className="hover:text-white flex pt-[28px] md: pt-[40px] lg: pt-[40px] ">
+                    <a href="" className="hover:text-white flex pt-[28px] md:pt-[40px] lg:pt-[40px]">
                         <BsFillTelephoneFill /> &nbsp;&nbsp; +66 2470 9850
                     </a>
                     <a href="mailto:webadmin@sit.kmutt.ac.th" className="hover:text-white flex pt-[10px]">
