@@ -50,7 +50,7 @@ function pmDisplay() {
             buildingRoom: "Lx-11/1",
             img: unhealthy,
             building: "Lx",
-            Pm: 50,
+            Pm: 40,
         },
         {
             buildingRoom: "Lx-12/1",
