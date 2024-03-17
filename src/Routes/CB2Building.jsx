@@ -30,7 +30,7 @@ function CB2Building() {
             <Navbar/>
             <Box>
                 <Link to="/" className="flex mt-[2%] mb-[2%] ml-[2%] w-[60px]">
-                    <BsChevronLeft className='mt-[3px] stroke-1'/> &nbsp; 
+                    <BsChevronLeft className='mt-[3px] stroke-1'/> 
                     <Typography sx={{
                         ":hover": {
                             textDecoration: 'underline',
