@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Typography, Box } from '@mui/material';
 import unhealthy from "../assets/unhealthygoose.png"
+import { Link } from "react-router-dom";
 
 function pmDisplay() {
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -93,55 +94,57 @@ function pmDisplay() {
             }}>
                 {allCards.filter((card) => selectedCategory ? card.building === selectedCategory : true).map(function (data) {
                     return(
-                        <Box sx={{
-                            width: '450px',
-                            background: "white",
-                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                            borderRadius: "20px",
-                            p: "20px",
-                            margin: "0 25px 24px",
-                            transition: ".3s",
-                            border: "2px solid transparent",
-                            cursor: 'pointer',
-                            ":hover": {
-                                borderColor: "#3f6593"
-                            }
-                        }}>
+                        <Link to={data.building}>
                             <Box sx={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                justifyContent: 'flex-start'
+                                width: '450px',
+                                background: "white",
+                                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                                borderRadius: "20px",
+                                p: "20px",
+                                margin: "0 25px 24px",
+                                transition: ".3s",
+                                border: "2px solid transparent",
+                                cursor: 'pointer',
+                                ":hover": {
+                                    borderColor: "#3f6593"
+                                }
                             }}>
-                                <img src={check(data.Pm)} className='w-[auto] h-[130px] border-[12px] border-white' alt={`Waiting for Image`}/>
                                 <Box sx={{
-                                    pl: '30px',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justifyContent: 'flex-start'
                                 }}>
-                                    <Typography variant='h3' sx={{
-                                        fontSize: '20px',
+                                    <img src={check(data.Pm)} className='w-[auto] h-[130px] border-[12px] border-white' alt={`Waiting for Image`}/>
+                                    <Box sx={{
+                                        pl: '30px',
                                     }}>
-                                        {data.buildingRoom}
-                                    </Typography>
-                                    <Typography variant='h4' sx={{
-                                        width: '60px',
-                                        backgroundColor: buildingStyle(data.building),
-                                        borderRadius: '12px',
-                                        color: "white",
-                                        textAlign: 'center',
-                                        fontWeight: 300,
-                                        fontSize: '16px',
-                                        py: "1px"
-                                    }}>
-                                        {data.building}
-                                    </Typography>
-                                    <Typography variant='h1' sx={{
-                                        fontSize: '50px',
-                                        fontWeight: 400
-                                    }}>
-                                        {data.Pm}
-                                    </Typography>
+                                        <Typography variant='h3' sx={{
+                                            fontSize: '20px',
+                                        }}>
+                                            {data.buildingRoom}
+                                        </Typography>
+                                        <Typography variant='h4' sx={{
+                                            width: '60px',
+                                            backgroundColor: buildingStyle(data.building),
+                                            borderRadius: '12px',
+                                            color: "white",
+                                            textAlign: 'center',
+                                            fontWeight: 300,
+                                            fontSize: '16px',
+                                            py: "1px"
+                                        }}>
+                                            {data.building}
+                                        </Typography>
+                                        <Typography variant='h1' sx={{
+                                            fontSize: '50px',
+                                            fontWeight: 400
+                                        }}>
+                                            {data.Pm}
+                                        </Typography>
+                                    </Box>
                                 </Box>
                             </Box>
-                        </Box>
+                        </Link>
                     )
                 })}
             </Box>
@@ -149,17 +152,17 @@ function pmDisplay() {
     )
 }
 
-function check(AQI) {
+function check(pm) {
 
-    if (AQI >= 251) {
+    if (pm >= 251) {
         // return hazadous;
-    } else if (AQI >= 151) {
+    } else if (pm >= 151) {
         // return veryunhealthy;
-    } else if (AQI >= 66) {
+    } else if (pm >= 66) {
         return unhealthy;
-    } else if (AQI >= 41) {
+    } else if (pm >= 41) {
         // return unhealthyforsensitivegroup;
-    } else if (AQI >= 16) {
+    } else if (pm >= 16) {
         // return moderate;
     } else {
         // return good;

@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css'
-import { Typography } from '@mui/material'
 import Navbar from './Components/Navbar'
 import Main_pmDisplay from './Components/pmDisplay'
 import Footer from "./Components/Footer"
