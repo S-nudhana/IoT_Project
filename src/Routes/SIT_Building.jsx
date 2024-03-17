@@ -56,7 +56,7 @@ function SIT_Building() {
                         width: '70%',
                         mb: "50px",
                         py: "30px",
-                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                         borderRadius: '20px'
                     }}>
                         <Typography sx={{
@@ -98,7 +98,7 @@ function SIT_Building() {
                         width: '70%',
                         maxWidth: "1200px",
                         hight: '1200px',
-                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                         borderRadius: '20px',
                         mb: "50px",
                         py: "30px",
