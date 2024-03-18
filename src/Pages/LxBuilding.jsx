@@ -2,6 +2,7 @@ import React from 'react';
 import { BsChevronLeft } from "react-icons/bs";
 import { Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import unhealthy from "../assets/unhealthygoose.png"
@@ -9,6 +10,8 @@ import unhealthy from "../assets/unhealthygoose.png"
 const pm = 100;
 
 function LxBuilding() {
+    const { Lx_Building } = useParams();
+
     const borderStyle = (pm) => {
         if (pm >= 251) {
             return "#A07684";
@@ -62,7 +65,7 @@ function LxBuilding() {
                         <Typography sx={{
                             fontSize: '30px'
                         }}>
-                            Room sdaad
+                            Room: {Lx_Building}
                         </Typography>
                         <Typography sx={{
                             fontSize: '20px'

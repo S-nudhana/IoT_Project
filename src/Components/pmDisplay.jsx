@@ -94,7 +94,7 @@ function pmDisplay() {
             }}>
                 {allCards.filter((card) => selectedCategory ? card.building === selectedCategory : true).map(function (data) {
                     return(
-                        <Link to={data.building}>
+                        <Link to={`/${data.building}/${encodeURIComponent(data.buildingRoom)}`}>
                             <Box sx={{
                                 width: '450px',
                                 background: "white",
