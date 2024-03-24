@@ -1,8 +1,7 @@
 import React from 'react';
 import { BsChevronLeft } from "react-icons/bs";
 import { Typography, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import unhealthy from "../assets/unhealthygoose.png"
