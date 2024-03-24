@@ -1,16 +1,16 @@
 import React from 'react';
 import { BsChevronLeft } from "react-icons/bs";
 import { Typography, Box } from '@mui/material';
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import unhealthy from "../assets/unhealthygoose.png"
-
-const pm = 10;
+import { allCards } from '../Components/pmDisplay';
 
 function CB2Building() {
     const { CB2_Building } = useParams();
+    
+    const selectedCard = allCards.find(card => card.buildingRoom === CB2_Building);
 
     const borderStyle = (pm) => {
         if (pm >= 251) {
@@ -27,6 +27,38 @@ function CB2Building() {
             return "#ABD162";
         }
     };
+
+    const check_Picture = (pm) => {
+        if (pm >= 251) {
+            // return hazadous;
+        } else if (pm >= 151) {
+            // return veryunhealthy;
+        } else if (pm >= 66) {
+            return unhealthy;
+        } else if (pm >= 41) {
+            // return unhealthyforsensitivegroup;
+        } else if (pm >= 16) {
+            // return moderate;
+        } else {
+            // return good;
+        }
+    }
+
+    const check_AQI_Catagory = (pm) => {
+        if (pm >= 251) {
+            return "Hazadous";
+        } else if (pm >= 151) {
+            return "Very Unhealthy";
+        } else if (pm >= 66) {
+            return "Unhealthy";
+        } else if (pm >= 41) {
+            return "Unhealthy for sensitive group";
+        } else if (pm >= 16) {
+            return "Moderate";
+        } else {
+            return "Good";
+        }
+    }
 
     return (
         <>
@@ -74,23 +106,23 @@ function CB2Building() {
                         </Typography>
                         <Box sx={{
                             border: '7px solid',
-                            borderColor: borderStyle(pm),
+                            borderColor: borderStyle(selectedCard.Pm),
                             borderRadius: "100%",
                             my: '20px',
                             mx: "40px"
                         }}>
-                            <img src={unhealthy} alt="" className='py-[20px] px-[20px]'/>
+                            <img src={check_Picture(selectedCard.Pm)} alt="" className='py-[20px] px-[20px]'/>
                         </Box>
                         <Typography sx={{
-                            fontSize: "50px",
+                            fontSize: "70px",
                             fontWeight: 500
                         }}>
-                            50
+                            {selectedCard.Pm}
                         </Typography>
                         <Typography sx={{
                             fontSize: "20px"
                         }}>
-                            Unhealthy
+                            {check_AQI_Catagory(selectedCard.Pm)}
                         </Typography>
                     </Box>
                     <Box sx={{

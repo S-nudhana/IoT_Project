@@ -3,69 +3,69 @@ import { Typography, Box } from '@mui/material';
 import unhealthy from "../assets/unhealthygoose.png"
 import { Link } from "react-router-dom";
 
+export const allCards = [
+    {
+        buildingRoom: "SIT Floor 1",
+        img: unhealthy,
+        building: "SIT",
+        Pm: 66,
+    },
+    {
+        buildingRoom: "SIT Floor 2",
+        img: unhealthy,
+        building: "SIT",
+        Pm: 67,
+    },
+    {
+        buildingRoom: "SIT Floor 3",
+        img: unhealthy,
+        building: "SIT",
+        Pm: 68,
+    },
+    {
+        buildingRoom: "SIT Infra & Software Room",
+        img: unhealthy,
+        building: "SIT",
+        Pm: 69,
+    },
+    {
+        buildingRoom: "CB 2308",
+        img: unhealthy,
+        building: "CB2",
+        Pm: 66,
+    },
+    {
+        buildingRoom: "Lx-10/1",
+        img: unhealthy,
+        building: "Lx",
+        Pm: 50,
+    },
+    {
+        buildingRoom: "Lx-11/1",
+        img: unhealthy,
+        building: "Lx",
+        Pm: 40,
+    },
+    {
+        buildingRoom: "Lx-12/1",
+        img: unhealthy,
+        building: "Lx",
+        Pm: 50,
+    },
+    {
+        buildingRoom: "Lx-13/2",
+        img: unhealthy,
+        building: "Lx",
+        Pm: 50,
+    }
+];
+
 function pmDisplay() {
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     const handleCategoryClick = (category) => {
         setSelectedCategory((prevCategory) => (prevCategory === category ? null : category));
     };
-
-    const allCards = [
-        {
-            buildingRoom: "SIT Floor 1",
-            img: unhealthy,
-            building: "SIT",
-            Pm: 67,
-        },
-        {
-            buildingRoom: "SIT Floor 2",
-            img: unhealthy,
-            building: "SIT",
-            Pm: 67,
-        },
-        {
-            buildingRoom: "SIT Floor 3",
-            img: unhealthy,
-            building: "SIT",
-            Pm: 67,
-        },
-        {
-            buildingRoom: "SIT Infra & Software Room",
-            img: unhealthy,
-            building: "SIT",
-            Pm: 67,
-        },
-        {
-            buildingRoom: "CB 2308",
-            img: unhealthy,
-            building: "CB2",
-            Pm: 50,
-        },
-        {
-            buildingRoom: "Lx-10/1",
-            img: unhealthy,
-            building: "Lx",
-            Pm: 50,
-        },
-        {
-            buildingRoom: "Lx-11/1",
-            img: unhealthy,
-            building: "Lx",
-            Pm: 40,
-        },
-        {
-            buildingRoom: "Lx-12/1",
-            img: unhealthy,
-            building: "Lx",
-            Pm: 50,
-        },
-        {
-            buildingRoom: "Lx-13/2",
-            img: unhealthy,
-            building: "Lx",
-            Pm: 50,
-        }
-    ];
 
     const buildingStyle = (building) => {
         switch(building) {
@@ -81,7 +81,7 @@ function pmDisplay() {
     return (
         <Box>
             <Box sx={{
-                padding: "2% 0 2% 2%"
+                padding: "2% 0 2% 2%",
             }}>
                 <button onClick={() => handleCategoryClick(null)} className='text-sm mx-[7px] bg-[#406695] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent hover:border-[#406695] hover:bg-white hover:text-[#406695] hover:duration-300 shadow-md'>All</button>
                 <button onClick={() => handleCategoryClick('SIT')} className='text-sm mx-[7px] bg-[#ecbd4d] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent hover:border-[#ecbd4d] hover:bg-white hover:text-[#ecbd4d] hover:duration-300 shadow-md'>SIT</button>
