@@ -91,12 +91,13 @@ function pmDisplay() {
             <Box sx={{
                 display: "flex",
                 flexWrap: "wrap",
+                justifyContent: 'center'
             }}>
                 {allCards.filter((card) => selectedCategory ? card.building === selectedCategory : true).map(function (data) {
                     return(
                         <Link to={`/${data.building}/${encodeURIComponent(data.buildingRoom)}`}>
                             <Box sx={{
-                                width: '450px',
+                                width: {xs: "370px", sm: "360px", md: "400px", lg: "450px"},
                                 background: "white",
                                 boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                                 borderRadius: "20px",
