@@ -1,15 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Typography, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, ScrollRestoration } from 'react-router-dom';
 import axios from 'axios';
 
-import nodata from "../assets/NoData.jpg"
-import good from '../assets/01-good.png';
-import moderate from '../assets/02-moderate.png';
-import unhealthyForSensitiveGroup from '../assets/03-unhealthy-for-sensitive.png';
-import unhealthy from '../assets/04-unhealthy.png';
-import veryUnhealthy from '../assets/05-very-unhealthy.png';
-import hazardous from '../assets/06-hazardous.png';
+import { check_Picture, pm25_aqi } from './Calculation';
 
 export const allCards = [
     {
@@ -138,47 +132,9 @@ export default function PmDisplay() {
         }
     };
 
-    const check = (pm) => {
-        if(pm == null || pm == 0){
-            return nodata
-        }else if (pm >= 301) {
-            return hazardous;
-        } else if (pm >= 201) {
-            return veryUnhealthy;
-        } else if (pm >= 151) {
-            return unhealthy;
-        } else if (pm >= 101) {
-            return unhealthyForSensitiveGroup;
-        } else if (pm >= 51) {
-            return moderate;
-        } else {
-            return good;
-        }
-    };
-
-    const pm25_aqi = (pm25) => {
-        if (pm25 == 0 || pm25 == null) {
-            return "No data"
-        }
-        const c = Math.floor(10 * pm25) / 10;
-        const a = c < 0 ? 0
-            : c < 12.1 ? lerp(0, 50, 0.0, 12.0, c)
-                : c < 35.5 ? lerp(51, 100, 12.1, 35.4, c)
-                    : c < 55.5 ? lerp(101, 150, 35.5, 55.4, c)
-                        : c < 150.5 ? lerp(151, 200, 55.5, 150.4, c)
-                            : c < 250.5 ? lerp(201, 300, 150.5, 250.4, c)
-                                : c < 350.5 ? lerp(301, 400, 250.5, 350.4, c)
-                                    : c < 500.5 ? lerp(401, 500, 350.5, 500.4, c)
-                                        : 500;
-        return Math.round(a);
-    }
-
-    const lerp = (ylo, yhi, xlo, xhi, x) => {
-        return ((x - xlo) / (xhi - xlo)) * (yhi - ylo) + ylo;
-    }
-
     return (
         <Box>
+            <ScrollRestoration />
             <Box sx={{ padding: { xs: "4% 0 2% 2%", lg: "2% 0 2% 2%" } }}>
                 <button onClick={() => handleCategoryClick(null)} className='text-sm mx-[7px] bg-[#406695] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#406695] hover:bg-white hover:text-[#406695] hover:duration-300 shadow-md'>All</button>
                 <button onClick={() => handleCategoryClick('SIT')} className='text-sm mx-[7px] bg-[#ecbd4d] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#ecbd4d] hover:bg-white hover:text-[#ecbd4d] hover:duration-300 shadow-md'>SIT</button>
@@ -201,7 +157,7 @@ export default function PmDisplay() {
                     .map((data, index) => (
                         <Link
                             to={{
-                                pathname: `/${data.building}/${encodeURIComponent(data.buildingRoom)}`,
+                                pathname: `/detail/${encodeURIComponent(data.buildingRoom)}`,
                             }}
                             key={index}
                         >
@@ -230,7 +186,7 @@ export default function PmDisplay() {
                                     }}
                                 >
                                     <img
-                                        src={check(pmData[data.key])}
+                                        src={check_Picture(pmData[data.key])}
                                         className="w-[auto] h-[130px] rounded-[13px]"
                                         alt="AQI Level"
                                     />

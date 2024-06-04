@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import App from './App.jsx';
-import SITBuilding from './Pages/SITBuilding.jsx';
-import CB2Building from './Pages/CB2Building.jsx';
-import LxBuilding from './Pages/LxBuilding.jsx';
+
+import Homepage from "./Pages/Homepage.jsx"
+import Detail from './Pages/Detail.jsx';
 
 const theme = createTheme({
   typography: {
@@ -21,19 +20,11 @@ const theme = createTheme({
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Homepage/>,
   },
   {
-    path: "/SIT/:SIT_Building",
-    element: <SITBuilding />,
-  },
-  {
-    path: "/CB2/:CB2_Building",
-    element: <CB2Building />,
-  },
-  {
-    path: "/Lx/:Lx_Building",
-    element: <LxBuilding />,
+    path: "/detail/:Building",
+    element: <Detail />,
   },
 ]);
 
