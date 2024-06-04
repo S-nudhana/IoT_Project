@@ -177,8 +177,6 @@ export default function PmDisplay() {
         return ((x - xlo) / (xhi - xlo)) * (yhi - ylo) + ylo;
     }
 
-    console.log(pmData)
-
     return (
         <Box>
             <Box sx={{ padding: { xs: "4% 0 2% 2%", lg: "2% 0 2% 2%" } }}>
