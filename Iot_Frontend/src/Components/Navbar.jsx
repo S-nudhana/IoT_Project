@@ -9,9 +9,13 @@ export default function Navbar() {
       <Box sx={{
         backgroundColor: "#3f6593",
       }}>
-        <Link to="https://www.sit.kmutt.ac.th">
-          <img src={logo} alt="" className="lg:w-[310px] md:w-[450px] w-[300px] h-[auto] lg:py-[15px] md:py-[20px] py-[20px]  pl-[60px] cursor-pointer" />
-        </Link>
+        <Box sx={{
+          width: '23%',
+        }}>
+          <Link to="https://www.sit.kmutt.ac.th">
+            <img src={logo} alt="" className="lg:w-[310px] md:w-[450px] w-[300px] h-[auto] lg:py-[15px] md:py-[20px] py-[20px]  pl-[60px]" />
+          </Link>
+        </Box>
       </Box>
     </>
   )
