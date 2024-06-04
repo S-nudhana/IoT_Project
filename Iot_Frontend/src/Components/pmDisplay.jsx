@@ -7,7 +7,7 @@ import { check_Picture, pm25_aqi } from './Calculation';
 
 export const allCards = [
     {
-        buildingRoom: "SIT CommonLab 1, 2",
+        buildingRoom: "SIT Lab 1, 2",
         building: "SIT",
         key: "Mi-CommonLab1-1_FL1",
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=5" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
@@ -210,7 +210,7 @@ export default function PmDisplay() {
                                         className="w-[auto] h-[130px] rounded-[13px]"
                                         alt="AQI Level"
                                     />
-                                    <Box sx={{ pl: '30px' }}>
+                                    <Box sx={{ pl: '30px', alignContent: 'center' }}>
                                         <Typography
                                             variant="h3"
                                             sx={{
@@ -238,7 +238,7 @@ export default function PmDisplay() {
                                         <Typography
                                             variant="h1"
                                             sx={{
-                                                fontSize: '50px',
+                                                fontSize: { xs: "38px", lg: '50px' },
                                                 fontWeight: 400,
                                                 color: 'black',
                                             }}
