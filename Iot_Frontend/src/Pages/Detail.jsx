@@ -35,7 +35,7 @@ export default function Detail() {
             <ScrollRestoration />
             <Navbar />
             <Box>
-                <Link to="/" className="flex mt-[20px] ml-[25px] mb-[5px] md:ml-[55px] w-[60px]">
+                <Link to="/" className="flex mt-[20px] ml-[25px] mb-[10px] md:ml-[55px] w-[60px]">
                     <BsChevronLeft className='mt-[3px] stroke-1' />
                     <Typography sx={{
                         ":hover": {
