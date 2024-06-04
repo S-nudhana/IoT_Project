@@ -7,7 +7,7 @@ import {
     BsFacebook,
 } from "react-icons/bs";
 import { Typography, Box } from '@mui/material';
-import logo from "../assets/SIT_logo.png";
+import logo from "../assets/picture/SIT_logo.png";
 
 export default function Footer() {
     return (
@@ -16,7 +16,7 @@ export default function Footer() {
         }}>
             <Box sx={{
                 display: 'flex',
-                flexDirection: {xs: "column", sm: "row"},
+                flexDirection: { xs: "column", sm: "row" },
                 alignItems: "center",
                 justifyContent: "space-evenly"
             }}>
@@ -26,20 +26,20 @@ export default function Footer() {
                     </Link>
                 </Box>
                 <Box sx={{
-                    color:'whitesmoke',
-                    fontSize: {xs: "12px", md: "14px", lg: '16px'},
+                    color: 'whitesmoke',
+                    fontSize: { xs: "12px", md: "14px", lg: '16px' },
                 }}>
                     <Link to="" className="hover:text-white flex pt-[28px] md:pt-[40px] lg:pt-[40px]">
-                        <BsFillTelephoneFill className='mt-[3px]'/> &nbsp;&nbsp; +66 2470 9850
+                        <BsFillTelephoneFill className='mt-[3px]' /> &nbsp;&nbsp; +66 2470 9850
                     </Link>
                     <Link to="mailto:webadmin@sit.kmutt.ac.th" className="hover:text-white flex pt-[10px]">
-                        <BsFillEnvelopeFill className='mt-[3px]'/>&nbsp;&nbsp; webadmin@sit.kmutt.ac.th
+                        <BsFillEnvelopeFill className='mt-[3px]' />&nbsp;&nbsp; webadmin@sit.kmutt.ac.th
                     </Link>
                     <Link to="https://www.facebook.com/SIT.Family" className="hover:text-white flex pt-[10px]">
-                        <BsFacebook className='mt-[3px]'/>&nbsp;&nbsp; SIT.Family
+                        <BsFacebook className='mt-[3px]' />&nbsp;&nbsp; SIT.Family
                     </Link>
                     <Link to="https://page.line.me/olt5471s?openQrModal=true" className="hover:text-white flex pt-[10px] pb-[20px]">
-                        <BsLine className='mt-[3px]'/>&nbsp;&nbsp; @sit.kmutt
+                        <BsLine className='mt-[3px]' />&nbsp;&nbsp; @sit.kmutt
                     </Link>
                 </Box>
             </Box>
@@ -51,7 +51,7 @@ export default function Footer() {
                 mt: '1%',
                 pb: '2%',
                 color: '#E0E5E5',
-                fontSize: {lg:"14px", md:"12px", xs: "10px"},
+                fontSize: { lg: "14px", md: "12px", xs: "10px" },
                 fontWeight: 400
             }}>
                 © 2018 School of Information Technology, King Mongkut's University of Technology Thonburi.

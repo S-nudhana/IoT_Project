@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import { Box } from '@mui/material';
-import logo from '../assets/SITKMUTT_logo.png'
+import logo from '../assets/picture/SITKMUTT_logo.png'
 
 export default function Navbar() {
   return (

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Typography, Box} from '@mui/material'
-import table from '../assets/pm.png'
+import table from '../assets/picture/pm.png'
 
 export default function Table() {
     return (
