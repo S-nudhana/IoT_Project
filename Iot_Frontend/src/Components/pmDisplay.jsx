@@ -119,6 +119,18 @@ export default function PmDisplay() {
         );
     };
 
+    const category = () => {
+        if (selectedCategory === null) {
+            return "All Building";
+        } else if (selectedCategory === "SIT") {
+            return "SIT Building";
+        } else if (selectedCategory === "CB") {
+            return "CB Building";
+        } else {
+            return "Lx Building";
+        }
+    }
+
     const buildingStyle = (building) => {
         switch (building) {
             case 'SIT':
@@ -135,13 +147,21 @@ export default function PmDisplay() {
     return (
         <Box>
             <ScrollRestoration />
-            <Box sx={{ padding: { xs: "4% 0 2% 2%", lg: "2% 0 2% 2%" } }}>
+            <Box sx={{ padding: { xs: "4% 0 2% 5%", lg: "2% 0 2% 3.5%" } }}>
                 <button onClick={() => handleCategoryClick(null)} className='text-sm mx-[7px] bg-[#406695] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#406695] hover:bg-white hover:text-[#406695] hover:duration-300 shadow-md'>All</button>
                 <button onClick={() => handleCategoryClick('SIT')} className='text-sm mx-[7px] bg-[#ecbd4d] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#ecbd4d] hover:bg-white hover:text-[#ecbd4d] hover:duration-300 shadow-md'>SIT</button>
                 <button onClick={() => handleCategoryClick('CB2')} className='text-sm mx-[7px] bg-[#498bb9] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#498bb9] hover:bg-white hover:text-[#498bb9] hover:duration-300 shadow-md'>CB2</button>
                 <button onClick={() => handleCategoryClick('Lx')} className='text-sm mx-[7px] bg-[#DF5935] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#DF5935] hover:bg-white hover:text-[#DF5935] hover:duration-300 shadow-md'>Lx</button>
             </Box>
-
+            <Typography sx={{
+                padding: { xs: "10px 0 10px 6%", lg: "0 0 1% 4%" },
+                color: 'black',
+                fontSize: { xs: "20px", lg: "22px" },
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px'
+            }}>
+                {category()}
+            </Typography>
             <Box
                 sx={{
                     display: 'flex',
