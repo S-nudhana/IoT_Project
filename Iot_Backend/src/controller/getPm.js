@@ -1,7 +1,7 @@
 import influx from "../services/connect.js";
 
 async function getPm(req, res) {
-  const ids = req.query.id.split(','); // Allow multiple keys separated by commas
+  const ids = req.query.id.split(',');
   try {
     await influx.getDatabaseNames();
     const promises = ids.map(id => influx.query(`SELECT value FROM "${id}" ORDER BY time DESC LIMIT 1`));
