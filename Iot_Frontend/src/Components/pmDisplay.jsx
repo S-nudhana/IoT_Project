@@ -70,7 +70,7 @@ export default function PmDisplay() {
                     {category()}
                 </Typography>
                 <Box sx={{
-                    py: {xs: '10px', sm: "0"}
+                    py: { xs: '10px', sm: "0" }
                 }}>
                     <button onClick={() => handleCategoryClick(null)} className='text-sm mx-[7px] bg-[#6BAB6E] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#6BAB6E] hover:bg-white hover:text-[#6BAB6E] hover:duration-300 shadow-md'>All</button>
                     <button onClick={() => handleCategoryClick('SIT')} className='text-sm mx-[7px] bg-[#ecbd4d] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#ecbd4d] hover:bg-white hover:text-[#ecbd4d] hover:duration-300 shadow-md'>SIT</button>
@@ -101,7 +101,7 @@ export default function PmDisplay() {
                             <Box
                                 sx={{
                                     width: { xs: '370px', sm: '350px', md: '430px', lg: '450px' },
-                                    height: '190px',
+                                    height: 'auto',
                                     background: 'white',
                                     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                                     borderRadius: '20px',
