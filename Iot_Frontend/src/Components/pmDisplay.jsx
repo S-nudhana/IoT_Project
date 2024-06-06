@@ -59,21 +59,23 @@ export default function PmDisplay() {
     return (
         <Box>
             <ScrollRestoration />
-            <Box sx={{ padding: { xs: "2% 2% 2% 5%", lg: "2% 2% 2% 3.5%" }, display:"flex", justifyContent:"space-between"}}>
-            <Typography sx={{
-                color: '#406695',
-                fontSize: { xs: "20px", lg: "22px" },
-                textDecoration: 'underline',
-                textUnderlineOffset: '2px',
-                fontWeight: 800,
-            }}>
-                {category()}
-            </Typography>
-                <Box>
-                <button onClick={() => handleCategoryClick(null)} className='text-sm mx-[7px] bg-[#6BAB6E] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#6BAB6E] hover:bg-white hover:text-[#6BAB6E] hover:duration-300 shadow-md'>All</button>
-                <button onClick={() => handleCategoryClick('SIT')} className='text-sm mx-[7px] bg-[#ecbd4d] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#ecbd4d] hover:bg-white hover:text-[#ecbd4d] hover:duration-300 shadow-md'>SIT</button>
-                <button onClick={() => handleCategoryClick('CB2')} className='text-sm mx-[7px] bg-[#498bb9] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#498bb9] hover:bg-white hover:text-[#498bb9] hover:duration-300 shadow-md'>CB2</button>
-                <button onClick={() => handleCategoryClick('Lx')} className='text-sm mx-[7px] bg-[#DF5935] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#DF5935] hover:bg-white hover:text-[#DF5935] hover:duration-300 shadow-md'>Lx</button>
+            <Box sx={{ padding: { xs: "2% 2% 2% 5%", lg: "2% 2% 2% 3.5%" }, display: "flex", flexDirection: { xs: "column", sm: "row" }, justifyContent: "space-between" }}>
+                <Typography sx={{
+                    color: '#406695',
+                    fontSize: { xs: "20px", lg: "22px" },
+                    textDecoration: 'underline',
+                    textUnderlineOffset: '2px',
+                    fontWeight: 800,
+                }}>
+                    {category()}
+                </Typography>
+                <Box sx={{
+                    py: {xs: '10px', sm: "0"}
+                }}>
+                    <button onClick={() => handleCategoryClick(null)} className='text-sm mx-[7px] bg-[#6BAB6E] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#6BAB6E] hover:bg-white hover:text-[#6BAB6E] hover:duration-300 shadow-md'>All</button>
+                    <button onClick={() => handleCategoryClick('SIT')} className='text-sm mx-[7px] bg-[#ecbd4d] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#ecbd4d] hover:bg-white hover:text-[#ecbd4d] hover:duration-300 shadow-md'>SIT</button>
+                    <button onClick={() => handleCategoryClick('CB2')} className='text-sm mx-[7px] bg-[#498bb9] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#498bb9] hover:bg-white hover:text-[#498bb9] hover:duration-300 shadow-md'>CB2</button>
+                    <button onClick={() => handleCategoryClick('Lx')} className='text-sm mx-[7px] bg-[#DF5935] rounded-[15px] w-[70px] text-white border-2 border-solid border-transparent duration-300 hover:border-[#DF5935] hover:bg-white hover:text-[#DF5935] hover:duration-300 shadow-md'>Lx</button>
                 </Box>
             </Box>
 
@@ -173,7 +175,7 @@ export default function PmDisplay() {
 
 export const allCards = [
     {
-        buildingRoom: "SIT Lab 1, 2",
+        buildingRoom: "SIT common Lab 1, 2",
         building: "SIT",
         key: "Mi-CommonLab1-1_FL1",
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=5" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
