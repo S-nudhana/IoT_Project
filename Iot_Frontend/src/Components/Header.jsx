@@ -39,7 +39,7 @@ function Header() {
         }}
       >
         <Typography variant="h3" sx={{ fontWeight: "800", fontSize: ['1.5rem','1.7rem', '2rem', '2.5rem'],fontFamily: 'Kanit, sans-serif'  }}>
-          Air Quality, SIT@KMUTT
+          Air Quality (AQI), SIT@KMUTT
         </Typography>
         <Typography variant="body1" sx={{ fontSize: ['0.8rem','0.8rem', '1rem', '1.2rem'] ,fontFamily: 'Kanit, sans-serif' }}>
           Stay informed about air quality conditions.
