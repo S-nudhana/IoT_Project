@@ -7,7 +7,6 @@ import { check_Picture, pm25_aqi } from './Calculation';
 
 export default function PmDisplay() {
     const [pmData, setPmData] = useState({});
-
     const fetchData = useCallback(async (keys) => {
         try {
             const keyString = Array.isArray(keys) ? keys.join(",") : keys;
