@@ -196,7 +196,7 @@ export const allCards = [
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=14" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
     },
     {
-        buildingRoom: "SIT Infra & Software Room",
+        buildingRoom: "SIT Infra & Software",
         building: "SIT",
         key: "Infra_mi4pro-1",
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=17" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
