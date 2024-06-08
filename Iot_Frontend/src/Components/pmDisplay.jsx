@@ -123,8 +123,7 @@ export default function PmDisplay() {
                                         border: "2px solid transparent",
                                         cursor: "pointer",
                                         ":hover": { borderColor: "#3f6593" },
-                                    }}
-                                >
+                                    }}>
                                     <Box
                                         sx={{
                                             display: "flex",
@@ -138,7 +137,7 @@ export default function PmDisplay() {
                                             alt="AQI Level"
                                         />
                                         <Box sx={{ pl: "30px", alignContent: "space-around", justifyContent: 'space-around' }}>
-                                            <Typography variant="h3" sx={{ fontSize: "20px" }}>
+                                            <Typography variant="h3" sx={{ fontSize: "20px", fontWeight: '500' }}>
                                                 {data.buildingRoom}
                                             </Typography>
                                             <Typography
