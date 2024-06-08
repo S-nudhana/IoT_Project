@@ -122,7 +122,7 @@ export default function PmDisplay() {
                                         transition: ".3s",
                                         border: "2px solid transparent",
                                         cursor: "pointer",
-                                        ":hover": { borderColor: "#3f6593" },
+                                        ":hover": { borderColor: buildingStyle(data.building) },
                                     }}>
                                     <Box
                                         sx={{
