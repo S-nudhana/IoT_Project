@@ -21,7 +21,15 @@ export default function Navbar() {
         width: 'full',
         backgroundColor: '#3F6593'
       }}>
-        <Box className="container mx-auto px-7 lg:px-8 xl:px-0 py-5 flex justify-start items-cesnter">
+        <Box sx={{
+          width: '100%',
+          margin: '0 auto',
+          px: { xs: 5, lg: 8 },
+          py: 2.5,
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center'
+        }}>
           <Link to="https://www.sit.kmutt.ac.th">
             <img src={logo} alt="" className="h-auto w-[200px]" />
           </Link>
