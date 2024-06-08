@@ -16,7 +16,6 @@ app.use(
 influx.getDatabaseNames()
   .then(names => {
     console.log('Connected to InfluxDB!');
-    console.log('Available databases:', names);
   })
   .catch(err => {
     console.error('Error connecting to InfluxDB:', err);

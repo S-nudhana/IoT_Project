@@ -51,7 +51,7 @@ export default function Footer() {
                 mt: '1%',
                 pb: '2%',
                 color: '#E0E5E5',
-                fontSize: { lg: "14px", md: "12px", xs: "10px" },
+                fontSize: { lg: "14px", md: "12px", xs: "9px" },
                 fontWeight: 400
             }}>
                 © 2018 School of Information Technology, King Mongkut's University of Technology Thonburi.

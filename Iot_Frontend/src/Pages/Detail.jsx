@@ -70,7 +70,8 @@ export default function Detail() {
                         borderRadius: '20px'
                     }}>
                         <Typography sx={{
-                            fontSize: { xs: "25px", md: '30px' }
+                            fontSize: { xs: "25px", md: '30px' },
+                            fontWeight: '500'
                         }}>
                             {Building}
                         </Typography>
@@ -114,6 +115,7 @@ export default function Detail() {
                             fontSize: "25px",
                             pt: "5px",
                             pb: "20px",
+                            fontWeight: '500'
                         }}>
                             History (μg/m³)
                         </Typography>

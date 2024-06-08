@@ -1,4 +1,4 @@
-; import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Typography, Box } from '@mui/material';
 import { Link, ScrollRestoration } from 'react-router-dom';
 import axios from 'axios';
@@ -71,7 +71,7 @@ export default function PmDisplay() {
                         fontSize: { xs: "20px", lg: "22px" },
                         textDecoration: "underline",
                         textUnderlineOffset: "2px",
-                        fontWeight: 800,
+                        fontWeight: 700,
                     }}
                 >
                     {category()}
@@ -137,7 +137,7 @@ export default function PmDisplay() {
                                             className="w-[auto] h-[130px] rounded-[13px]"
                                             alt="AQI Level"
                                         />
-                                        <Box sx={{ pl: "30px", alignContent: "center" }}>
+                                        <Box sx={{ pl: "30px", alignContent: "space-around", justifyContent: 'space-around' }}>
                                             <Typography variant="h3" sx={{ fontSize: "20px" }}>
                                                 {data.buildingRoom}
                                             </Typography>
@@ -146,12 +146,11 @@ export default function PmDisplay() {
                                                 sx={{
                                                     width: "60px",
                                                     backgroundColor: buildingStyle(data.building),
-                                                    borderRadius: "12px",
+                                                    borderRadius: "15px",
                                                     color: "white",
                                                     textAlign: "center",
-                                                    fontWeight: 300,
-                                                    fontSize: "16px",
-                                                    py: "1px",
+                                                    fontSize: "15px",
+                                                    py: "3px",
                                                     my: "7px",
                                                 }}
                                             >
@@ -161,11 +160,11 @@ export default function PmDisplay() {
                                                 variant="h1"
                                                 sx={{
                                                     fontSize: { xs: "38px", lg: "50px" },
-                                                    fontWeight: 400,
+                                                    fontWeight: 500,
                                                     color: "black",
                                                 }}
                                             >
-                                                {pm25_aqi(pmData[keyString])}
+                                                {pm25_aqi(pmData[keyString])}<span className="pl-[10px] text-[20px] font-normal text-[#919191]"> AQI</span>
                                             </Typography>
                                         </Box>
                                     </Box>
