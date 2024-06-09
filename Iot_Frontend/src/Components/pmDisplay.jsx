@@ -59,7 +59,7 @@ export default function PmDisplay() {
             <ScrollRestoration />
             <Box
                 sx={{
-                    padding: { xs: "2% 2% 2% 5%", lg: "2% 4% 2% 4%" },
+                    padding: { xs: "2% 2% 2% 5%", lg: "2% 4% 2% 4%", xl: '2% 7% 2% 7%' },
                     display: "flex",
                     flexDirection: { xs: "column", sm: "row" },
                     justifyContent: "space-between",
@@ -111,7 +111,7 @@ export default function PmDisplay() {
                                             xs: "370px",
                                             sm: "350px",
                                             md: "430px",
-                                            lg: "450px",
+                                            lg: "460px",
                                         },
                                         height: "auto",
                                         background: "white",
