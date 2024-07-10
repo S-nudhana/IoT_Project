@@ -5,7 +5,7 @@ import { Link, useParams, ScrollRestoration } from 'react-router-dom';
 import axios from 'axios';
 
 import { allCards } from '../Components/pmDisplay';
-import { check_Picture, check_AQI_Catagory, pm25_aqi } from '../Components/Calculation';
+import { check_Picture, check_AQI_Catagory, pm25_aqi } from '../utils/Calculation';
 import Navbar from '../Components/Navbar';
 import Table from '../Components/Table'
 import Footer from '../Components/Footer';
