@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from "react-router-dom"
 import logo from '../assets/picture/SITKMUTT_logo.png'
 import { Box, AppBar, Slide, useScrollTrigger } from '@mui/material';
