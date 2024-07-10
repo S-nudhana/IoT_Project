@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { BsChevronLeft } from "react-icons/bs";
 import { Typography, Box } from '@mui/material'
 import { Link, useParams, ScrollRestoration } from 'react-router-dom';

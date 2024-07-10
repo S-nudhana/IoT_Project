@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../Components/Navbar";
 import Main_pmDisplay from "../Components/pmDisplay";
 import Footer from "../Components/Footer";

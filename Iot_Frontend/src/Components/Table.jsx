@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { Typography, Box } from '@mui/material'
 import table from '../assets/picture/pm.png'
 
