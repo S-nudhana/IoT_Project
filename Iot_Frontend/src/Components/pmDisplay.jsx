@@ -3,7 +3,7 @@ import { Typography, Box } from '@mui/material';
 import { Link, ScrollRestoration } from 'react-router-dom';
 import axios from 'axios';
 
-import { check_Picture, pm25_aqi } from './Calculation';
+import { check_Picture, pm25_aqi } from '../utils/Calculation';
 
 export default function PmDisplay() {
     const [pmData, setPmData] = useState({});
