@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Typography, Box } from '@mui/material';
 import { Link, ScrollRestoration } from 'react-router-dom';
 import axios from 'axios';
@@ -59,7 +59,7 @@ export default function PmDisplay() {
             <ScrollRestoration />
             <Box
                 sx={{
-                    padding: { xs: "2% 2% 2% 5%", lg: "2% 4% 2% 4%" },
+                    padding: { xs: "2% 2% 2% 5%", lg: "2% 4% 2% 4%", xl: '2% 7% 2% 7%' },
                     display: "flex",
                     flexDirection: { xs: "column", sm: "row" },
                     justifyContent: "space-between",
@@ -76,7 +76,7 @@ export default function PmDisplay() {
                 >
                     {category()}
                 </Typography>
-                <Box sx={{ py: { xs: "10px", sm: "0" } }}>
+                <Box sx={{ py: { xs: "20px", sm: "0" } }}>
                     <button onClick={() => handleCategoryClick(null)} className="text-sm mx-[7px] py-[3px] bg-[#6BAB6E] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#558858] hover:duration-300 shadow-md"> All </button>
                     <button onClick={() => handleCategoryClick("SIT")} className="text-sm mx-[7px] py-[3px] bg-[#ecbd4d] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#BC973D] hover:duration-300 shadow-md"> SIT </button>
                     <button onClick={() => handleCategoryClick("CB2")} className="text-sm mx-[7px] py-[3px] bg-[#498bb9] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#3A6F94] hover:duration-300 shadow-md"> CB2 </button>
@@ -111,7 +111,7 @@ export default function PmDisplay() {
                                             xs: "370px",
                                             sm: "350px",
                                             md: "430px",
-                                            lg: "450px",
+                                            lg: "460px",
                                         },
                                         height: "auto",
                                         background: "white",
