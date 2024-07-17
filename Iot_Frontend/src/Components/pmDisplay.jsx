@@ -49,10 +49,17 @@ export default function PmDisplay() {
                 return "#498bb9";
             case "Lx":
                 return "#DF5935";
-            default:
-                return "";
         }
     };
+
+    const AQI = (pm) => {
+        if (pm === 0 || pm === null){
+            return ;
+        }
+        return(
+            <span className="pl-[10px] text-[20px] font-normal text-[#919191]"> AQI</span>
+        );
+    }
 
     return (
         <Box>
@@ -116,13 +123,16 @@ export default function PmDisplay() {
                                         height: "auto",
                                         background: "white",
                                         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                                        borderRadius: "20px",
-                                        p: "20px",
+                                        borderRadius: "30px",
+                                        p: "18px",
                                         alignContent: "center",
                                         transition: ".3s",
                                         border: "2px solid transparent",
                                         cursor: "pointer",
-                                        ":hover": { borderColor: buildingStyle(data.building) },
+                                        ":hover": {
+                                            boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)",
+                                            transform: "scale(1.01)",
+                                        }
                                     }}>
                                     <Box
                                         sx={{
@@ -133,7 +143,7 @@ export default function PmDisplay() {
                                     >
                                         <img
                                             src={check_Picture(pmData[keyString])}
-                                            className="w-[auto] h-[130px] rounded-[13px]"
+                                            className="w-[auto] h-[130px] rounded-[17px]"
                                             alt="AQI Level"
                                         />
                                         <Box sx={{ pl: "30px", alignContent: "space-around", justifyContent: 'space-around' }}>
@@ -163,7 +173,7 @@ export default function PmDisplay() {
                                                     color: "black",
                                                 }}
                                             >
-                                                {pm25_aqi(pmData[keyString])}<span className="pl-[10px] text-[20px] font-normal text-[#919191]"> AQI</span>
+                                                {pm25_aqi(pmData[keyString])} {AQI(pmData[keyString])}
                                             </Typography>
                                         </Box>
                                     </Box>
