@@ -1,15 +1,30 @@
 import influx from "../services/connect.js";
 
 async function getPm(req, res) {
-  const ids = req.query.id.split(',');
-  try {
-    await influx.getDatabaseNames();
-    const promises = ids.map(id => influx.query(`SELECT value FROM "${id}" ORDER BY time DESC LIMIT 1`));
-    const results = await Promise.all(promises);
+  const ids = req.query.id.split(",");
+  const now = new Date();
 
-    if (results.every(result => Array.isArray(result) && result.length > 0)) {
-      const values = results.map(result => result[0].value);
-      const averageValue = values.reduce((sum, value) => sum + value, 0) / values.length;
+  try {
+    const promises = ids.map((id) =>
+      influx.query(`SELECT * FROM "${id}" ORDER BY time DESC LIMIT 1`)
+    );
+    const results = await Promise.all(promises);
+    // console.log(results[0]);
+    if (results.every((result) => Array.isArray(result) && result.length > 0)) {
+      const values = results.map((result) => {
+        const record = result[0];
+        const recordTime = new Date(record.time);
+        const timeDifference = (now - recordTime) / (1000 * 60);
+
+        if (timeDifference > 30) {
+          return 0;
+        }
+        return record.value;
+      });
+
+      const averageValue =
+        values.reduce((sum, value) => sum + value, 0) / values.length;
+
       return res.json({
         success: true,
         data: averageValue,
