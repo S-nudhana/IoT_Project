@@ -9,7 +9,6 @@ async function getPm(req, res) {
       influx.query(`SELECT * FROM "${id}" ORDER BY time DESC LIMIT 1`)
     );
     const results = await Promise.all(promises);
-    // console.log(results[0]);
     if (results.every((result) => Array.isArray(result) && result.length > 0)) {
       const values = results.map((result) => {
         const record = result[0];
