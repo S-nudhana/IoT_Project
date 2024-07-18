@@ -87,7 +87,7 @@ export default function PmDisplay() {
                     <button onClick={() => handleCategoryClick(null)} className="text-sm mx-[7px] py-[3px] bg-[#6BAB6E] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#558858] hover:duration-300 shadow-md"> All </button>
                     <button onClick={() => handleCategoryClick("SIT")} className="text-sm mx-[7px] py-[3px] bg-[#ecbd4d] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#BC973D] hover:duration-300 shadow-md"> SIT </button>
                     <button onClick={() => handleCategoryClick("CB2")} className="text-sm mx-[7px] py-[3px] bg-[#498bb9] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#3A6F94] hover:duration-300 shadow-md"> CB2 </button>
-                    <button onClick={() => handleCategoryClick("Lx")} className="text-sm mx-[7px] py-[3px] bg-[#DF5935] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#B2472A] hover:duration-300 shadow-md"> Lx </button>
+                    {/* <button onClick={() => handleCategoryClick("Lx")} className="text-sm mx-[7px] py-[3px] bg-[#DF5935] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#B2472A] hover:duration-300 shadow-md"> Lx </button> */}
                 </Box>
             </Box>
 
