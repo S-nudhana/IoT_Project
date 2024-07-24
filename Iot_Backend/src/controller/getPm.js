@@ -15,7 +15,8 @@ async function getPm(req, res) {
         const recordTime = new Date(record.time);
         const timeDifference = (now - recordTime) / (1000 * 60);
 
-        if (timeDifference > 30) {
+        if (false) {
+        // if (timeDifference > 30) {
           return 0;
         }
         return record.value;
