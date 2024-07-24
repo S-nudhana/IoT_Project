@@ -115,7 +115,7 @@ export default function PmDisplay() {
                                 <Box
                                     sx={{
                                         width: {
-                                            xs: "370px",
+                                            xs: "350px",
                                             sm: "350px",
                                             md: "430px",
                                             lg: "460px",
