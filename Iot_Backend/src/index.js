@@ -13,6 +13,20 @@ app.use(
   })
 );
 
+async function getPm() {
+  try {
+    await influx.getDatabaseNames();
+    const measurementName = "CB2310"; // Corrected: Measurement name wrapped in quotes
+    const query = `SELECT * FROM "${measurementName}" ORDER BY time DESC`; // Corrected: Measurement name wrapped in quotes
+    const result = await influx.query(query);
+    console.log("Data from measurement (Newest to Oldest):", measurementName); // Corrected: Measurement name wrapped in quotes
+    console.log(result[0].value);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+getPm();
+
 influx
   .getDatabaseNames()
   .then((names) => {
