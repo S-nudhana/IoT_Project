@@ -13,13 +13,18 @@ app.use(
   })
 );
 
-influx.getDatabaseNames()
-  .then(names => {
-    console.log('Connected to InfluxDB!');
+influx
+  .getDatabaseNames()
+  .then((names) => {
+    console.log("Connected to InfluxDB!");
   })
-  .catch(err => {
-    console.error('Error connecting to InfluxDB:', err);
+  .catch((err) => {
+    console.error("Error connecting to InfluxDB:", err);
   });
+
+app.use("/", (req, res) => {
+  res.send("This is pm2.5 Project server");
+});
 
 app.use("/pm", pmRouter);
 
