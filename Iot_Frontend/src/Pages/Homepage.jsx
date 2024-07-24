@@ -5,6 +5,7 @@ import Table from "../Components/Table";
 import Header from "../Components/Header";
 import { Box } from "@mui/material";
 import { useEffect } from "react";
+import axios from "axios";
 
 export default function App() {
   const fetch = async () => {
