@@ -1,4 +1,4 @@
-FROM node:alpine as build
+FROM node:alpine AS build
 
 WORKDIR /mnt
 
@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm install
 
-FROM thistine/simple-http-server as runner
+FROM thistine/simple-http-server AS runner
 
 WORKDIR /mnt
 
