@@ -8,7 +8,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://pm25project.sit.kmutt.ac.th",
     credentials: true,
   })
 );
