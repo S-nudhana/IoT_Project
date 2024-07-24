@@ -6,6 +6,8 @@ COPY . .
 
 RUN npm install
 
+RUN npm run build
+
 FROM thistine/simple-http-server AS runner
 
 WORKDIR /mnt
