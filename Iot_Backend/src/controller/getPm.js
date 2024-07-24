@@ -9,15 +9,16 @@ async function getPm(req, res) {
       influx.query(`SELECT * FROM "${id}" ORDER BY time DESC LIMIT 1`)
     );
     const results = await Promise.all(promises);
+    console.log(results)
     if (results.every((result) => Array.isArray(result) && result.length > 0)) {
       const values = results.map((result) => {
         const record = result[0];
-        // const recordTime = new Date(record.time);
-        // const timeDifference = (now - recordTime) / (1000 * 60);
+        const recordTime = new Date(record.time);
+        const timeDifference = (now - recordTime) / (1000 * 60);
 
-        // if (timeDifference > 30) {
-        //   return 0;
-        // }
+        if (timeDifference > 30) {
+          return 0;
+        }
         return record.value;
       });
 
