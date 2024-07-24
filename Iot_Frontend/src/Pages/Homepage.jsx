@@ -4,8 +4,20 @@ import Footer from "../Components/Footer";
 import Table from "../Components/Table";
 import Header from "../Components/Header";
 import { Box } from "@mui/material";
+import { useEffect } from "react";
 
 export default function App() {
+  const fetch = async () => {
+    const response = await axios.get(
+      `http://pm25project.sit.kmutt.ac.th:3000/`
+    );
+    console.log(response);
+  }
+
+  useEffect(() => {
+    fetch();
+  },[]);
+
   return (
     <>
       <Navbar />

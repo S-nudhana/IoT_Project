@@ -10,17 +10,16 @@ async function getPm(req, res) {
     );
     const results = await Promise.all(promises);
     if (results.every((result) => Array.isArray(result) && result.length > 0)) {
-      // if (results.every((result) => Array.isArray(result) && result.length > 0)) {
-      // const values = results.map((result) => {
-      //   const record = result[0];
-      //   const recordTime = new Date(record.time);
-      //   const timeDifference = (now - recordTime) / (1000 * 60);
+      const values = results.map((result) => {
+        const record = result[0];
+        const recordTime = new Date(record.time);
+        const timeDifference = (now - recordTime) / (1000 * 60);
 
-      //   if (timeDifference > 30) {
-      //     return 0;
-      //   }
-      //   return record.value;
-      // });
+        if (timeDifference > 30) {
+          return 0;
+        }
+        return record.value;
+      });
 
       const averageValue =
         values.reduce((sum, value) => sum + value, 0) / values.length;
