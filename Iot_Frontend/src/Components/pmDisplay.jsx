@@ -11,7 +11,7 @@ export default function PmDisplay() {
         try {
             const keyString = Array.isArray(keys) ? keys.join(",") : keys;
             const response = await axios.get(
-                `http://localhost:3000/pm/getPm?id=${keyString}`
+                `http://pm25project.sit.kmutt.ac.th:3000/pm/getPm?id=${keyString}`
             );
             setPmData((prevData) => ({
                 ...prevData,
@@ -53,10 +53,10 @@ export default function PmDisplay() {
     };
 
     const AQI = (pm) => {
-        if (pm === 0 || pm === null){
-            return ;
+        if (pm === 0 || pm === null) {
+            return;
         }
-        return(
+        return (
             <span className="pl-[10px] text-[20px] font-normal text-[#919191]"> AQI</span>
         );
     }
