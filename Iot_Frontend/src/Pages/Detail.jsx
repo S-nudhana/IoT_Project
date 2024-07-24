@@ -16,7 +16,7 @@ export default function Detail() {
     const fetchData = useCallback(async (key) => {
         try {
             const response = await axios.get(
-                `http://localhost:3000/pm/getPm?id=${key}`
+                `http://pm25project.sit.kmutt.ac.th:3000/pm/getPm?id=${key}`
             );
             setPmData(response.data.data);
         } catch (error) {
