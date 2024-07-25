@@ -52,15 +52,6 @@ export default function PmDisplay() {
         }
     };
 
-    const AQI = (pm) => {
-        if (pm === 0 || pm === null) {
-            return;
-        }
-        return (
-            <span className="pl-[10px] text-[20px] font-normal text-[#919191]"> AQI</span>
-        );
-    }
-
     return (
         <Box>
             <ScrollRestoration />
@@ -118,7 +109,8 @@ export default function PmDisplay() {
                                             xs: "350px",
                                             sm: "350px",
                                             md: "430px",
-                                            lg: "460px",
+                                            lg: "430px",
+                                            xl: '460px',
                                         },
                                         height: "auto",
                                         background: "white",
@@ -173,7 +165,7 @@ export default function PmDisplay() {
                                                     color: "black",
                                                 }}
                                             >
-                                                {pm25_aqi(pmData[keyString])} {AQI(pmData[keyString])}
+                                                {pm25_aqi(pmData[keyString])} <span className="pl-[10px] text-[20px] font-normal text-[#919191]"> AQI</span>
                                             </Typography>
                                         </Box>
                                     </Box>
