@@ -13,8 +13,6 @@ app.use(
   })
 );
 
-app.use(express.json());
-
 influx
   .getDatabaseNames()
   .then((names) => {
@@ -24,7 +22,14 @@ influx
     console.error("Error connecting to InfluxDB:", err);
   });
 
+
+app.use(express.json());
 app.use("/api/pm", pmRouter);
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the backend!');
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
