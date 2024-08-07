@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "http://pm25project-in.sit.kmutt.ac.th:3000",
+    baseURL: import.meta.env.VITE_REACT_APP_API_URL,
     timeout: 5000,
     withCredentials: true,
 });
