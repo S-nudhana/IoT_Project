@@ -14,16 +14,13 @@ async function getPm(req, res) {
         const record = result[0];
         const recordTime = new Date(record.time);
         const timeDifference = (now - recordTime) / (1000 * 60);
-
         if (timeDifference > 30) {
           return 0;
         }
         return record.value;
       });
 
-      const averageValue =
-        values.reduce((sum, value) => sum + value, 0) / values.length;
-      console.log(averageValue)
+      const averageValue = values.reduce((sum, value) => sum + value, 0) / values.length;
       return res.json({
         success: true,
         data: averageValue,
