@@ -134,7 +134,7 @@ export default function PmDisplay() {
                                         }}
                                     >
                                         <img
-                                            src={check_Picture(pmData[keyString])}
+                                            src={check_Picture(pm25_aqi(pmData[keyString]))}
                                             className="w-[auto] h-[130px] rounded-[17px]"
                                             alt="AQI Level"
                                         />
@@ -194,13 +194,13 @@ export const allCards = [
     {
         buildingRoom: "SIT Floor 3",
         building: "SIT",
-        key: "CenterHall3_Xiaomi_4_Pro_2",
+        key: "esp8266_08",
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=14" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
     },
     {
         buildingRoom: "SIT Infra & Software",
         building: "SIT",
-        key: "Infra_mi4pro-1",
+        key: "esp8266_09",
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=17" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
     },
     {
