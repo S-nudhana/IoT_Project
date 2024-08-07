@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Typography, Box } from '@mui/material';
 import { Link, ScrollRestoration } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from '../utils/axiosInstance';
 
 import { check_Picture, pm25_aqi } from '../utils/Calculation';
 
@@ -10,8 +10,8 @@ export default function PmDisplay() {
     const fetchData = useCallback(async (keys) => {
         try {
             const keyString = Array.isArray(keys) ? keys.join(",") : keys;
-            const response = await axios.get(
-                `http://localhost:3000/pm/getPm?id=${keyString}`
+            const response = await axiosInstance.get(
+                `/pm/getPm?id=${keyString}`
             );
             setPmData((prevData) => ({
                 ...prevData,
@@ -51,15 +51,6 @@ export default function PmDisplay() {
                 return "#DF5935";
         }
     };
-
-    const AQI = (pm) => {
-        if (pm === 0 || pm === null){
-            return ;
-        }
-        return(
-            <span className="pl-[10px] text-[20px] font-normal text-[#919191]"> AQI</span>
-        );
-    }
 
     return (
         <Box>
@@ -115,10 +106,11 @@ export default function PmDisplay() {
                                 <Box
                                     sx={{
                                         width: {
-                                            xs: "370px",
+                                            xs: "350px",
                                             sm: "350px",
                                             md: "430px",
-                                            lg: "460px",
+                                            lg: "430px",
+                                            xl: '460px',
                                         },
                                         height: "auto",
                                         background: "white",
@@ -142,7 +134,7 @@ export default function PmDisplay() {
                                         }}
                                     >
                                         <img
-                                            src={check_Picture(pmData[keyString])}
+                                            src={check_Picture(pm25_aqi(pmData[keyString]))}
                                             className="w-[auto] h-[130px] rounded-[17px]"
                                             alt="AQI Level"
                                         />
@@ -173,7 +165,7 @@ export default function PmDisplay() {
                                                     color: "black",
                                                 }}
                                             >
-                                                {pm25_aqi(pmData[keyString])} {AQI(pmData[keyString])}
+                                                {pm25_aqi(pmData[keyString])} <span className="pl-[10px] text-[20px] font-normal text-[#919191]"> AQI</span>
                                             </Typography>
                                         </Box>
                                     </Box>
@@ -202,13 +194,13 @@ export const allCards = [
     {
         buildingRoom: "SIT Floor 3",
         building: "SIT",
-        key: "CenterHall3_Xiaomi_4_Pro_2",
+        key: "esp8266_08",
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=14" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
     },
     {
         buildingRoom: "SIT Infra & Software",
         building: "SIT",
-        key: "Infra_mi4pro-1",
+        key: "esp8266_09",
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=17" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
     },
     {

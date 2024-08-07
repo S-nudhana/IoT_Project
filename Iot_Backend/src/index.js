@@ -8,17 +8,18 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://pm25project.sit.kmutt.ac.th",
     credentials: true,
   })
 );
 
-influx.getDatabaseNames()
-  .then(names => {
-    console.log('Connected to InfluxDB!');
+influx
+  .getDatabaseNames()
+  .then((names) => {
+    console.log("Connected to InfluxDB!");
   })
-  .catch(err => {
-    console.error('Error connecting to InfluxDB:', err);
+  .catch((err) => {
+    console.error("Error connecting to InfluxDB:", err);
   });
 
 app.use("/pm", pmRouter);
