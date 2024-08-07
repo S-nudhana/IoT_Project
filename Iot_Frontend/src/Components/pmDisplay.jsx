@@ -11,7 +11,7 @@ export default function PmDisplay() {
         try {
             const keyString = Array.isArray(keys) ? keys.join(",") : keys;
             const response = await axios.get(
-                `http://pm25project.sit.kmutt.ac.th:3000/pm/getPm?id=${keyString}`
+                `http://pm25project-in.sit.kmutt.ac.th:3000/pm/getPm?id=${keyString}`
             );
             setPmData((prevData) => ({
                 ...prevData,
