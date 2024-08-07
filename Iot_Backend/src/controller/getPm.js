@@ -3,7 +3,7 @@ import influx from "../services/connect.js";
 async function getPm(req, res) {
   const ids = req.query.id.split(",");
   const now = new Date();
-
+  console.log("first");
   try {
     const promises = ids.map((id) =>
       influx.query(`SELECT * FROM "${id}" ORDER BY time DESC LIMIT 1`)
