@@ -22,7 +22,7 @@ influx
     console.error("Error connecting to InfluxDB:", err);
   });
 
-app.use("/pm", pmRouter);
+app.use("/api/pm", pmRouter);
 
 app.use(express.json());
 app.listen(port, () => {
