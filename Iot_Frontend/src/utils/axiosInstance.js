@@ -5,4 +5,5 @@ const axiosInstance = axios.create({
     timeout: 5000,
     withCredentials: true,
 });
+
 export default axiosInstance;
