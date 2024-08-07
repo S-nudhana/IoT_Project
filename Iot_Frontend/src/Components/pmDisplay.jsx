@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Typography, Box } from '@mui/material';
 import { Link, ScrollRestoration } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from '../utils/axiosInstance';
 
 import { check_Picture, pm25_aqi } from '../utils/Calculation';
 
@@ -10,8 +10,8 @@ export default function PmDisplay() {
     const fetchData = useCallback(async (keys) => {
         try {
             const keyString = Array.isArray(keys) ? keys.join(",") : keys;
-            const response = await axios.get(
-                `http://pm25project-in.sit.kmutt.ac.th:3000/pm/getPm?id=${keyString}`
+            const response = await axiosInstance.get(
+                `/pm/getPm?id=${keyString}`
             );
             setPmData((prevData) => ({
                 ...prevData,

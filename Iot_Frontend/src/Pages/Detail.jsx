@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { BsChevronLeft } from "react-icons/bs";
 import { Typography, Box } from '@mui/material'
 import { Link, useParams, ScrollRestoration } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from '../utils/axiosInstance';
 
 import { allCards } from '../Components/pmDisplay';
 import { check_Picture, check_AQI_Catagory, pm25_aqi } from '../utils/Calculation';
@@ -15,8 +15,8 @@ export default function Detail() {
     const [pmData, setPmData] = useState();
     const fetchData = useCallback(async (key) => {
         try {
-            const response = await axios.get(
-                `http://pm25project-in.sit.kmutt.ac.th:3000/pm/getPm?id=${key}`
+            const response = await axiosInstance.get(
+                `/pm/getPm?id=${key}`
             );
             setPmData(response.data.data);
         } catch (error) {
