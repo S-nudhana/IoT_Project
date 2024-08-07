@@ -19,7 +19,6 @@ async function getPm(req, res) {
         // }
         return record.value;
       });
-
       const averageValue = values.reduce((sum, value) => sum + value, 0) / values.length;
       return res.json({
         success: true,
