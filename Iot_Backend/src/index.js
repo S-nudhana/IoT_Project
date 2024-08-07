@@ -25,7 +25,6 @@ influx
   });
 
 app.use("/api/pm", pmRouter);
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

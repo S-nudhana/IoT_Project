@@ -3,7 +3,7 @@ import influx from "../services/connect.js";
 async function getPm(req, res) {
   const ids = req.query.id.split(",");
   const now = new Date();
-  console.log("first");
+
   try {
     const promises = ids.map((id) =>
       influx.query(`SELECT * FROM "${id}" ORDER BY time DESC LIMIT 1`)
@@ -14,9 +14,9 @@ async function getPm(req, res) {
         const record = result[0];
         const recordTime = new Date(record.time);
         const timeDifference = (now - recordTime) / (1000 * 60);
-        if (timeDifference > 30) {
-          return 0;
-        }
+        // if (timeDifference > 30) {
+        //   return 0;
+        // }
         return record.value;
       });
       const averageValue = values.reduce((sum, value) => sum + value, 0) / values.length;
