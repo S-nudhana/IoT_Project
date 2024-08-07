@@ -13,6 +13,8 @@ app.use(
   })
 );
 
+app.use(express.json());
+
 influx
   .getDatabaseNames()
   .then((names) => {
@@ -24,7 +26,6 @@ influx
 
 app.use("/api/pm", pmRouter);
 
-app.use(express.json());
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
