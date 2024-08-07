@@ -35,7 +35,6 @@ export default function PmDisplay() {
             prevCategory === category ? null : category
         );
     };
-
     const category = () => {
         if (selectedCategory === null) return "All Building";
         return `${selectedCategory} Building`;
