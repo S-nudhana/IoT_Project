@@ -23,11 +23,8 @@ influx
   });
 
 app.use(express.json());
-app.use("/api/pm", pmRouter);
+app.use("/pm", pmRouter);
 
-app.get('/api', (req, res) => {
-  res.send('Welcome to the backend!');
-});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
