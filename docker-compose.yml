@@ -5,6 +5,12 @@ services:
     networks:
       iot_network:
         ipv4_address: 192.168.0.4
+  web:
+    image: iot-frontend
+    restart: unless-stopped
+    networks:
+      iot_network:
+        ipv4_address: 192.168.0.5
 
 networks:
   iot_network:
