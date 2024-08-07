@@ -1,8 +1,8 @@
-FROM node:alpine
+FROM oven/bun
 
 COPY . .
 
-RUN npm install
+RUN bun install
 
 EXPOSE 3000
-ENTRYPOINT [ "node", "src/index.js" ]
+ENTRYPOINT [ "bun", "src/index.js" ]
