@@ -71,7 +71,8 @@ export default function Detail() {
                     }}>
                         <Typography sx={{
                             fontSize: { xs: "25px", md: '30px' },
-                            fontWeight: '500'
+                            fontWeight: '500',
+                            wordWrap: 'break-word'
                         }}>
                             {Building}
                         </Typography>
