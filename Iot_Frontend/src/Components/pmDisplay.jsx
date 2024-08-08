@@ -179,9 +179,9 @@ export default function PmDisplay() {
 
 export const allCards = [
     {
-        buildingRoom: "SIT common Lab 1, 2",
+        buildingRoom: "SIT Outdoor and Common Lab 1, 2",
         building: "SIT",
-        key: ["Mi-CommonLab1-1_FL1", "Mi-CommonLab2-1_FL1"],
+        key: ["esp8266_03", "Mi-CommonLab1-1_FL1", "Mi-CommonLab2-1_FL1"],
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=49" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
     },
     {
