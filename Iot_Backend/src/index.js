@@ -23,6 +23,9 @@ influx
   });
 
 app.use(express.json());
+app.use("/test", (req, res) => {
+  res.json({ success: true });
+});
 app.use("/pm", pmRouter);
 
 app.listen(port, () => {
