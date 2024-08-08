@@ -70,7 +70,7 @@ export default function Detail() {
                         borderRadius: '20px'
                     }}>
                         <Typography sx={{
-                            fontSize: { xs: "25px", md: '30px' },
+                            fontSize: { xs: "20px", md: '30px' },
                             fontWeight: '500',
                             wordWrap: 'break-word'
                         }}>
@@ -113,7 +113,7 @@ export default function Detail() {
                         py: "30px",
                     }}>
                         <Typography sx={{
-                            fontSize: "25px",
+                            fontSize: { xs: "20px", md: '30px' },
                             pt: "5px",
                             pb: "20px",
                             fontWeight: '500'
