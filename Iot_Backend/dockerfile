@@ -1,8 +1,8 @@
-FROM oven/bun
+FROM node:lts
 
 COPY . .
 
-RUN bun install
+RUN npm install
 
 EXPOSE 3000
-ENTRYPOINT [ "bun", "src/index.js" ]
+ENTRYPOINT [ "node", "src/index.js" ]
