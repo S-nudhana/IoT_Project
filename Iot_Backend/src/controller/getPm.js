@@ -6,7 +6,7 @@ async function getPm(req, res) {
 
   try {
     const promises = ids.map((id) =>
-      influx.query(`SELECT * FROM "${id}" ORDER BY time DESC LIMIT 1`)
+      influx.query(`SELECT * FROM "${id}" WHERE sensor='PM2.5' ORDER BY time DESC LIMIT 1`)
     );
     const results = await Promise.all(promises);
     let divider = 0;
