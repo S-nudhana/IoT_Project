@@ -51,6 +51,8 @@ export default function PmDisplay() {
         }
     };
 
+    console.log(pmData)
+
     return (
         <Box>
             <ScrollRestoration />
@@ -77,7 +79,7 @@ export default function PmDisplay() {
                     <button onClick={() => handleCategoryClick(null)} className="text-sm mx-[7px] py-[3px] bg-[#6BAB6E] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#558858] hover:duration-300 shadow-md"> All </button>
                     <button onClick={() => handleCategoryClick("SIT")} className="text-sm mx-[7px] py-[3px] bg-[#ecbd4d] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#BC973D] hover:duration-300 shadow-md"> SIT </button>
                     <button onClick={() => handleCategoryClick("CB2")} className="text-sm mx-[7px] py-[3px] bg-[#498bb9] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#3A6F94] hover:duration-300 shadow-md"> CB2 </button>
-                    {/* <button onClick={() => handleCategoryClick("Lx")} className="text-sm mx-[7px] py-[3px] bg-[#DF5935] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#B2472A] hover:duration-300 shadow-md"> Lx </button> */}
+                    <button onClick={() => handleCategoryClick("Lx")} className="text-sm mx-[7px] py-[3px] bg-[#DF5935] rounded-[15px] w-[70px] text-white duration-300 hover:bg-[#B2472A] hover:duration-300 shadow-md"> Lx </button>
                 </Box>
             </Box>
 
@@ -238,28 +240,28 @@ export const allCards = [
         key: "CB2310",
         chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=69" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
     },
-    // {
-    //     buildingRoom: "Lx-10/1",
-    //     building: "Lx",
-    //     key: "null",
-    //     chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=10" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
-    // },
-    // {
-    //     buildingRoom: "Lx-11/1",
-    //     building: "Lx",
-    //     key: "null",
-    //     chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=19" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
-    // },
-    // {
-    //     buildingRoom: "Lx-12/1",
-    //     building: "Lx",
-    //     key: "null",
-    //     chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=21" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
-    // },
-    // {
-    //     buildingRoom: "Lx-13/2",
-    //     building: "Lx",
-    //     key: "null",
-    //     chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=22" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
-    // }
+    {
+        buildingRoom: "Lx-10/1",
+        building: "Lx",
+        key: "esp8266_05",
+        chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=10" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
+    },
+    {
+        buildingRoom: "Lx-11/1",
+        building: "Lx",
+        key: "esp8266_02",
+        chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=19" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
+    },
+    {
+        buildingRoom: "Lx-12/1",
+        building: "Lx",
+        key: "esp8266_04",
+        chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=21" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
+    },
+    {
+        buildingRoom: "Lx-13/2",
+        building: "Lx",
+        key: "esp8266_06",
+        chart: <iframe src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=22" className='w-[90%] h-[440px] xl:h-[600px]'></iframe>,
+    }
 ];

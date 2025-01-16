@@ -3,15 +3,13 @@ import "dotenv/config";
 import pmRouter from "./routes/pm.js";
 import influx from "./services/connect.js";
 import cors from "cors";
+
+import { corsOptions } from "./config/cors.config.js";
+
 const port = 3000;
 const app = express();
 
-app.use(
-  cors({
-    origin: "https://pm25project.sit.kmutt.ac.th",
-    credentials: true,
-  })
-);
+app.use(cors(corsOptions));
 
 influx
   .getDatabaseNames()
@@ -23,9 +21,6 @@ influx
   });
 
 app.use(express.json());
-app.use("/test", (req, res) => {
-  res.json({ success: true });
-});
 app.use("/pm", pmRouter);
 
 app.listen(port, () => {
