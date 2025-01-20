@@ -89,7 +89,7 @@ export default function Detail() {
                             fontSize: "50px",
                             fontWeight: 500
                         }}>
-                            {pm25_aqi(pmData)}<span className="pl-[10px] text-[20px] font-normal text-[#919191]"> AQI</span>
+                            {pm25_aqi(pmData)}<span className={`pl-[10px] text-[20px] font-normal text-[#919191] ${pmData ? "" : "hidden"}`}> AQI</span>
                         </Typography>
                         <Typography sx={{
                             fontSize: "20px"
