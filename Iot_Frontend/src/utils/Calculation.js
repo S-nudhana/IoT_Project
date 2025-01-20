@@ -1,10 +1,10 @@
-import nodata from "../assets/picture/NoData.jpg";
-import good from "../assets/picture/01-good.png";
-import moderate from "../assets/picture/02-moderate.png";
-import unhealthyForSensitiveGroup from "../assets/picture/03-unhealthy-for-sensitive.png";
-import unhealthy from "../assets/picture/04-unhealthy.png";
-import veryUnhealthy from "../assets/picture/05-very-unhealthy.png";
-import hazadous from "../assets/picture/06-hazardous.png";
+import nodata from "../../public/assets/image/NoData.jpg";
+import good from "../../public/assets/image/01-good.png";
+import moderate from "../../public/assets/image/02-moderate.png";
+import unhealthyForSensitiveGroup from "../../public/assets/image/03-unhealthy-for-sensitive.png";
+import unhealthy from "../../public/assets/image/04-unhealthy.png";
+import veryUnhealthy from "../../public/assets/image/05-very-unhealthy.png";
+import hazadous from "../../public/assets/image/06-hazardous.png";
 
 export const check_Picture = (pm) => {
   if (pm === 0 || pm === null || pm === "No Data") {

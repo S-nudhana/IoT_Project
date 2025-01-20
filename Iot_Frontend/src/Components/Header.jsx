@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import HeaderPic from '../assets/picture/Header.png';
+import HeaderPic from '../../public/assets/image/Header.png';
 
 function Header() {
   return (
