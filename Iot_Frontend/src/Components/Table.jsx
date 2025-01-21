@@ -1,5 +1,5 @@
 import { Typography, Box } from "@mui/material";
-import table from "../../public/assets/image/pm.png";
+import table from "/assets/image/pm.png";
 
 export default function Table() {
   return (
