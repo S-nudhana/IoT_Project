@@ -3,7 +3,9 @@ import { Typography, Box } from "@mui/material";
 import { Link, ScrollRestoration } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 
-import { check_Picture, pm25_aqi } from "../utils/Calculation";
+import { allSensor } from "../utils/allSensor";
+
+import { check_Picture } from "../utils/Calculation";
 
 export default function PmDisplay() {
   const [pmData, setPmData] = useState({});
@@ -21,7 +23,7 @@ export default function PmDisplay() {
   }, []);
 
   useEffect(() => {
-    allCards.forEach((card) => {
+    allSensor.forEach((card) => {
       const keys = Array.isArray(card.key) ? card.key : [card.key];
       fetchData(keys);
     });
@@ -104,7 +106,6 @@ export default function PmDisplay() {
           </button>
         </Box>
       </Box>
-
       <Box
         sx={{
           display: "flex",
@@ -113,7 +114,7 @@ export default function PmDisplay() {
           gap: "25px",
         }}
       >
-        {allCards
+        {allSensor
           .filter((card) =>
             selectedCategory ? card.building === selectedCategory : true
           )
@@ -129,7 +130,7 @@ export default function PmDisplay() {
                 <Box
                   sx={{
                     width: {
-                      xs: "350px",
+                      xs: "370px",
                       sm: "350px",
                       md: "430px",
                       lg: "430px",
@@ -158,7 +159,7 @@ export default function PmDisplay() {
                     }}
                   >
                     <img
-                      src={check_Picture(pm25_aqi(pmData[keyString]))}
+                      src={check_Picture(pmData[keyString] == 0 || pmData[keyString] == null ? "No Data" : pmData[keyString])}
                       className="w-[auto] h-[130px] rounded-[17px]"
                       alt="AQI Level"
                     />
@@ -198,9 +199,9 @@ export default function PmDisplay() {
                           color: "black",
                         }}
                       >
-                        {pm25_aqi(pmData[keyString])}
-                        <span className={`pl-[10px] text-[20px] font-normal text-[#919191] ${pmData[keyString] ? "" : "hidden"}`}>
-                          AQI
+                        {pmData[keyString] == 0 || pmData[keyString] == null ? "No Data" : pmData[keyString]}
+                        <span className={`pl-[10px] text-[20px] font-normal text-[#777676] ${pmData[keyString] ? "" : "hidden"}`}>
+                          µg/m³
                         </span>
                       </Typography>
                     </Box>
@@ -213,160 +214,3 @@ export default function PmDisplay() {
     </Box>
   );
 }
-
-export const allCards = [
-  {
-    buildingRoom: "SIT Outdoor and Common Lab 1, 2",
-    building: "SIT",
-    key: ["esp8266_03", "Mi-CommonLab1-1_FL1", "Mi-CommonLab2-1_FL1"],
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=49"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "SIT Learning Space",
-    building: "SIT",
-    key: ["Mi-LearningSpace01_FL2"],
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=40"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "SIT Floor 3",
-    building: "SIT",
-    key: "esp8266_08",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=14"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "SIT Infra & Software",
-    building: "SIT",
-    key: "esp8266_09",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=17"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "CB 2303",
-    building: "CB2",
-    key: "CB2303",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=57"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "CB 2304",
-    building: "CB2",
-    key: "CB2304",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=60"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "CB 2305",
-    building: "CB2",
-    key: "CB2305",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=61"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "CB 2306",
-    building: "CB2",
-    key: "CB2306-1",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=63"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "CB 2308",
-    building: "CB2",
-    key: "CB2308-1",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=12"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "CB 2310",
-    building: "CB2",
-    key: "CB2310",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=69"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "Lx-10/1",
-    building: "Lx",
-    key: "esp8266_05",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=10"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "Lx-11/1",
-    building: "Lx",
-    key: "esp8266_02",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=19"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "Lx-12/1",
-    building: "Lx",
-    key: "esp8266_04",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=21"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-  {
-    buildingRoom: "Lx-13/2",
-    building: "Lx",
-    key: "esp8266_06",
-    chart: (
-      <iframe
-        src="https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=22"
-        className="w-[90%] h-[440px] xl:h-[600px]"
-      ></iframe>
-    ),
-  },
-];

@@ -6,7 +6,7 @@ import {
   BsFacebook,
 } from "react-icons/bs";
 import { Typography, Box } from "@mui/material";
-import logo from "../../public/assets/image/SIT_logo.png";
+import logo from "/assets/image/SIT_logo.png";
 
 export default function Footer() {
   return (

@@ -4,7 +4,7 @@ import { Typography, Box } from '@mui/material'
 import { Link, useParams, ScrollRestoration } from 'react-router-dom';
 import axiosInstance from '../utils/axiosInstance';
 
-import { allCards } from '../Components/pmDisplay';
+import { allSensor } from '../utils/allSensor';
 import { check_Picture, check_AQI_Catagory, pm25_aqi } from '../utils/Calculation';
 import Navbar from '../Components/Navbar';
 import Table from '../Components/Table'
@@ -28,7 +28,7 @@ export default function Detail() {
         fetchData(selectedCard.key);
     }, [fetchData]);
 
-    const selectedCard = allCards.find(card => card.buildingRoom === Building);
+    const selectedCard = allSensor.find(card => card.buildingRoom === Building);
 
     return (
         <>
@@ -83,13 +83,13 @@ export default function Detail() {
                         <Box sx={{
                             width: "46%",
                         }}>
-                            <img src={check_Picture(pm25_aqi(pmData))} alt="" className='p-[12px] rounded-[100%]' />
+                            <img src={check_Picture(pmData == 0 || pmData == null ? "No Data" : pmData)} alt="" className='p-[12px] rounded-[100%]' />
                         </Box>
                         <Typography sx={{
                             fontSize: "50px",
                             fontWeight: 500
                         }}>
-                            {pm25_aqi(pmData)}<span className={`pl-[10px] text-[20px] font-normal text-[#919191] ${pmData ? "" : "hidden"}`}> AQI</span>
+                            {pmData == 0 || pmData == null ? "No Data" : pmData}<span className={`pl-[10px] text-[20px] font-normal text-[#777676] ${pmData ? "" : "hidden"}`}> µg/m³</span>
                         </Typography>
                         <Typography sx={{
                             fontSize: "20px"
