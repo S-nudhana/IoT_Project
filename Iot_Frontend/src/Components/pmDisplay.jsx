@@ -30,11 +30,13 @@ export default function PmDisplay() {
   }, [fetchData]);
 
   const [selectedCategory, setSelectedCategory] = useState(null);
+  
   const handleCategoryClick = (category) => {
     setSelectedCategory((prevCategory) =>
       prevCategory === category ? null : category
     );
   };
+
   const category = () => {
     if (selectedCategory === null) return "All Building";
     return `${selectedCategory} Building`;
@@ -50,8 +52,6 @@ export default function PmDisplay() {
         return "#DF5935";
     }
   };
-
-  console.log(pmData);
 
   return (
     <Box>
