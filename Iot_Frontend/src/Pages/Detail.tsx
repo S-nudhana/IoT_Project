@@ -56,7 +56,7 @@ export default function Detail() {
     <Box>
       <ScrollRestoration />
       <Navbar />
-      <Box sx={{ pt: "90px" }}>
+      <Box sx={{ pt: "80px" }}>
         <BackBTN />
       </Box>
       <Box

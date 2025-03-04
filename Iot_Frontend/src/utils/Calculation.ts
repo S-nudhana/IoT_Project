@@ -11,7 +11,7 @@ export const AQI_Catagory = (pm: number | null) => {
       pm: 0,
       description: "ไม่พบข้อมูล",
       image: nodata,
-      color: "#000000",
+      color: "",
       recommend: "ไม่มี",
     };
   } else if (pm >= 75.1) {
