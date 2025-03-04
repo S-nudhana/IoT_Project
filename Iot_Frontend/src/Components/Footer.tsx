@@ -5,14 +5,14 @@ import {
   BsLine,
   BsFacebook,
 } from "react-icons/bs";
-import { Typography, Box } from "@mui/material";
-import logo from "/assets/image/SIT_logo.png";
+import { Typography, Box, Divider } from "@mui/material";
+import logo from "/image/SIT_logo.png";
 
 export default function Footer() {
   return (
     <Box
       sx={{
-        backgroundColor: "#3F6593",
+        backgroundColor: "#222222",
       }}
     >
       <Box
@@ -68,7 +68,7 @@ export default function Footer() {
           </Link>
         </Box>
       </Box>
-      <hr className="mt-[1%] ml-[10%] mr-[10%] bg-[#3F6593]"></hr>
+      <Divider variant="middle" sx={{bgcolor: "#E0E5E5", mx:"7%"}}/>
       <Typography
         sx={{
           display: "flex",

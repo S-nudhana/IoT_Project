@@ -4,12 +4,16 @@ import pmRouter from "./routes/pm.js";
 import influx from "./services/connect.js";
 import cors from "cors";
 
-import { corsOptions } from "./config/cors.config.js";
+import { corsOptions } from "./config/corsConfig.js";
+import { logger } from "./middleware/logger.js";
 
 const port = 3000;
 const app = express();
 
 app.use(cors(corsOptions));
+app.use(logger);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 influx
   .getDatabaseNames()
@@ -20,7 +24,6 @@ influx
     console.error("Error connecting to InfluxDB:", err);
   });
 
-app.use(express.json());
 app.use("/pm", pmRouter);
 
 app.listen(port, () => {

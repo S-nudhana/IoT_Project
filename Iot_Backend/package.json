@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "bun run src/index.ts",
+    "build": "bun run tsc",
+    "start": "bun run dist/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,10 @@
     "express": "^4.19.2",
     "influx": "^5.9.3",
     "nodemon": "^3.1.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.9"
   }
 }

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import logo from '/assets/image/SITKMUTT_logo.png'
+import logo from '/image/SITKMUTT_logo.png'
 import { Box, AppBar, Slide, useScrollTrigger } from '@mui/material';
 
 function HideOnScroll(props) {
@@ -18,7 +18,7 @@ export default function Navbar() {
     <HideOnScroll>
       <AppBar sx={{
         width: 'full',
-        backgroundColor: '#3F6593'
+        backgroundColor: '#222222'
       }}>
         <Box sx={{
           width: '100%',
