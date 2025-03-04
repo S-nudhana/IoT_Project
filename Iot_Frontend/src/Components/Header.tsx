@@ -48,7 +48,7 @@ function Header() {
             borderRadius: "50px",
             textAlign: "center",
             padding: "7px 17px",
-            fontSize: "16px",
+            fontSize: "14px",
             width: "fit-content",
             fontWeight: "600",
             letterSpacing: "1px",
@@ -60,7 +60,7 @@ function Header() {
           sx={{
             color: "#373E44",
             mt: "10px",
-            fontSize: {xs: "36px", sm: "50px", lg: "65px"},
+            fontSize: {xs: "38px", sm: "60px", lg: "65px"},
             fontWeight: "600",
             letterSpacing: "1px",
           }}

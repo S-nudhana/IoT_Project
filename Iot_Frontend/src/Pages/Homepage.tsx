@@ -82,7 +82,7 @@ export default function App() {
         sx={{
           position: "relative",
           zIndex: 2,
-          width: "85%",
+          width: {xs: "85%", sm: "93%", lg: "85%"},
           display: "flex",
           flexDirection: "column",
           margin: "0 auto",
@@ -90,7 +90,7 @@ export default function App() {
       >
         <Typography
           sx={{
-            fontSize: "28px",
+            fontSize: {xs: "20px", sm: "28px"},
             fontWeight: "500",
           }}
         >
@@ -167,7 +167,7 @@ export default function App() {
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
-          justifyContent: {xs: "center", md: "flex-start"},
+          justifyContent: {xs: "center", sm: "flex-start"},
           gap: "20px",
           m: "10px 0 40px",
         }}>

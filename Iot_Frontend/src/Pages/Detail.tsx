@@ -69,6 +69,7 @@ export default function Detail() {
         <Box
           sx={{
             width: "85%",
+            maxWidth: "1350px",
             height: "auto",
             padding: "20px",
             bgcolor: "white",
@@ -76,7 +77,7 @@ export default function Detail() {
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
             justifyContent: { xs: "center", md: "space-between" },
-            alignItems: { xs: "center", md: "start" },
+            alignItems: { xs: "center", sm: "start" },
             gap: "20px",
             mb: "30px",
           }}
@@ -84,7 +85,8 @@ export default function Detail() {
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", md: "row" },
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: "center",
             }}
           >
             <img
@@ -96,7 +98,7 @@ export default function Detail() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                justifyContent: {xs: "center", sm: "start"},
                 gap: "7px",
               }}
             >
@@ -137,7 +139,7 @@ export default function Detail() {
               display: sameSensor? "none" : "flex",
               flexDirection: "column",
               justifyContent: "center",
-              width: { xs: "100%", md: "250px" },
+              width: { xs: "100%", md: "auto" },
               height: "fit-content",
               borderRadius: "15px",
               padding: "20px",
