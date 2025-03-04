@@ -26,12 +26,13 @@ export default function Card({ index, item, keyString, pmData }: CardProps) {
     <Box
       key={index}
       sx={{
-        width: { xs: "330px", sm: "342px" },
+        width: { xs: "330px", md: "320px", lg: "340px" },
         height: "auto",
         backgroundColor: "white",
         borderRadius: "20px",
         boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
         padding: "20px",
+        cursor: "pointer",
         transition: "0.2s ease-in-out",
         ":hover": {
           boxShadow: "0px 4px 6px rgba(0,0,0,0.2)",
