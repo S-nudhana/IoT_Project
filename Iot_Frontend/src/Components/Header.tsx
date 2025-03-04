@@ -3,14 +3,14 @@ import HeaderPic from '/image/Header.png';
 
 function Header() {
   return (
-    <Box sx={{ position: 'relative', mt: "50px" }}>
+    <Box sx={{ position: 'relative', mt: "40px" }}>
       <Box
         component="img"
         src={HeaderPic}
         alt="Header Image"
         sx={{
           width: '100%',
-          height: { xs: '350px', sm: '400px', md: '450px', lg: '500px' },
+          height: { xs: '330px', sm: '370px', md: '400px', lg: '450px' },
           objectFit: 'cover',
         }}
       />
