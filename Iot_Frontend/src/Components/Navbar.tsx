@@ -2,7 +2,11 @@ import { Link } from "react-router-dom"
 import logo from '/image/SITKMUTT_logo.png'
 import { Box, AppBar, Slide, useScrollTrigger } from '@mui/material';
 
-function HideOnScroll(props) {
+interface HideOnScrollProps {
+  children: React.ReactElement;
+}
+
+function HideOnScroll(props: HideOnScrollProps) {
   const { children } = props;
   const trigger = useScrollTrigger();
 
