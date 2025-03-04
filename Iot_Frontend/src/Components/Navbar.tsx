@@ -27,14 +27,14 @@ export default function Navbar() {
         <Box sx={{
           width: '100%',
           margin: '0 auto',
-          px: { xs: 5, lg: 8 },
+          px: { xs: "25px", lg: "50px" },
           py: 2.5,
           display: 'flex',
           justifyContent: 'flex-start',
           alignItems: 'center'
         }}>
           <Link to="https://www.sit.kmutt.ac.th">
-            <img src={logo} alt="" className="h-auto w-[200px]" />
+            <img src={logo} alt="" className="h-auto w-[180px] lg:w-[200px]" />
           </Link>
         </Box>
       </AppBar>
