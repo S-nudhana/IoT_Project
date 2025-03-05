@@ -1,7 +1,7 @@
 import { Typography, Box, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { AQI_Catagory } from "../utils/Calculation";
+import { AQI_Catagory } from "../Utils/Calculation";
 
 interface Sensor {
   buildingRoom: string;
@@ -26,7 +26,7 @@ export default function Card({ index, item, keyString, pmData }: CardProps) {
       <Box
         key={index}
         sx={{
-          width: { xs: "330px", md: "320px", lg: "340px" },
+          width: { xs: "330px",sm: "365px", md: "320px", lg: "330px" },
           height: "auto",
           backgroundColor: "white",
           borderRadius: "20px",
@@ -52,7 +52,7 @@ export default function Card({ index, item, keyString, pmData }: CardProps) {
           <img
             src={pmInfo.image}
             alt="AQI picture"
-            className="w-[120px] h-[120px]"
+            className="w-[110px] h-[110px] mb-[15px] rounded-xl"
           />
           <Box>
             <Typography

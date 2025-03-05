@@ -13,7 +13,7 @@ function Header() {
           height: { xs: '330px', sm: '370px', md: '400px', lg: '450px' },
           objectFit: 'cover',
         }}
-      />
+      />  
       <Box
         sx={{
           position: 'absolute',

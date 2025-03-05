@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect, useCallback } from "react";
 import {
   Box,
@@ -14,8 +15,12 @@ import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Card from "../Components/Card";
 
-import { allSensor } from "../utils/allSensor";
-import axiosInstance from "../utils/axiosInstance";
+import { setData } from "../Features/dataSlice";
+
+import { RootState } from "../App/store";
+
+import { allSensor } from "../Utils/allSensor";
+import axiosInstance from "../Utils/axiosInstance";
 
 interface Sensor {
   buildingRoom: string;
@@ -26,7 +31,9 @@ interface Sensor {
 }
 
 export default function App() {
-  const [value, setValue] = useState<string>("SIT");
+  const dispatch = useDispatch();
+  const storeData = useSelector((state: RootState) => state.data);
+  const [value, setValue] = useState<string>( storeData.Building || "SIT");
   const [floor, setFloor] = useState<number[]>([]);
   const [selectedFloor, setSelectedFloor] = useState<number>(0);
   const [pmData, setPmData] = useState<Record<string, any>>({});
@@ -56,6 +63,7 @@ export default function App() {
     const floor = getFloor(newValue);
     setFloor(floor);
     setSelectedFloor(floor[0]);
+    handleState(newValue, floor[0]);
   };
 
   const getFloor = (building: string) => {
@@ -66,23 +74,23 @@ export default function App() {
     return [...new Set(floorList)];
   };
 
+  const handleState = (building: string, floor: number) => {
+    dispatch(setData({ Building: building, Floor: floor }));
+  };
+
   useEffect(() => {
     const floor = getFloor(value);
     setFloor(floor);
-    setSelectedFloor(floor[0]);
+    setSelectedFloor(storeData.Floor);
   }, []);
 
   return (
     <>
       <Navbar />
-      <Box sx={{ position: "relative", zIndex: 1 }}>
-        <Header />
-      </Box>
+      <Header />
       <Box
         sx={{
-          position: "relative",
-          zIndex: 2,
-          width: {xs: "85%", sm: "93%", lg: "85%"},
+          width: { xs: "85%", sm: "93%", lg: "92%", xxl: "85%" },
           display: "flex",
           flexDirection: "column",
           margin: "0 auto",
@@ -90,7 +98,7 @@ export default function App() {
       >
         <Typography
           sx={{
-            fontSize: {xs: "20px", sm: "28px"},
+            fontSize: { xs: "20px", sm: "28px" },
             fontWeight: "500",
           }}
         >
@@ -121,14 +129,14 @@ export default function App() {
           sx={{
             borderBottom: 1,
             borderColor: "divider",
-            mt: {lg:"10px"},
+            mt: { lg: "10px" },
             display: { xs: "none", sm: "block" },
           }}
         >
           <Tabs value={value} onChange={handleChange}>
-            <Tab label="อาคารเทคโนโลยีสารสนเทศ (SIT)" value={"SIT"} sx={{fontSize: "16px"}}/>
-            <Tab label="อาคารเรียนรวม 2 (CB2)" value={"CB2"} sx={{fontSize: "16px"}}/>
-            <Tab label="อาคารเรียนรู้พหุวิทยาการ (Lx)" value={"LX"} sx={{fontSize: "16px"}}/>
+            <Tab label="อาคารเทคโนโลยีสารสนเทศ (SIT)" value={"SIT"} sx={{ fontSize: "16px" }} />
+            <Tab label="อาคารเรียนรวม 2 (CB2)" value={"CB2"} sx={{ fontSize: "16px" }} />
+            <Tab label="อาคารเรียนรู้พหุวิทยาการ (Lx)" value={"LX"} sx={{ fontSize: "16px" }} />
           </Tabs>
         </Box>
         <Box
@@ -137,7 +145,7 @@ export default function App() {
             flexDirection: "row",
             flexWrap: "wrap",
             gap: "10px",
-            m: {xs: "10px 0 20px 0", sm: "20px 0"},
+            m: { xs: "10px 0 20px 0", sm: "20px 0" },
           }}
         >
           {floor.map((item, index) => (
@@ -157,7 +165,10 @@ export default function App() {
                   bgcolor: selectedFloor === item ? "" : "#d1cfcd",
                 },
               }}
-              onClick={() => setSelectedFloor(item)}
+              onClick={() => { 
+                setSelectedFloor(item) 
+                handleState(value, item)
+              }}
             >
               ชั้น {item}
             </Box>
@@ -167,7 +178,7 @@ export default function App() {
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
-          justifyContent: {xs: "center", sm: "flex-start"},
+          justifyContent: { xs: "center", sm: "flex-start" },
           gap: "20px",
           m: "10px 0 40px",
         }}>
@@ -181,7 +192,7 @@ export default function App() {
                 ? item.key.join(",")
                 : item.key;
               return (
-                <Card index={index} item={item} keyString={keyString} pmData={pmData}/>
+                <Card key={index} index={index} item={item} keyString={keyString} pmData={pmData} />
               );
             })}
         </Box>

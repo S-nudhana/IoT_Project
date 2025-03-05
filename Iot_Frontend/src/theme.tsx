@@ -1,16 +1,32 @@
 import { createTheme } from '@mui/material/styles';
+import { GlobalStyles } from '@mui/material';
 
 export const theme = createTheme({
-    typography: {
-      fontFamily: ['Inter', 'Noto Sans Thai', 'sans-serif'].join(','),
+  typography: {
+    fontFamily: ['Inter', 'Noto Sans Thai', 'sans-serif'].join(','),
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1500,
     },
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 900,
-        lg: 1200,
-        xl: 1500,
+  },
+});
+
+export const globalStyles = (
+  <GlobalStyles
+    styles={{
+      "::-moz-selection": {
+        background: "#336699",
+        color: "#ffffff",
       },
-    },
-  });
+      "::selection": {
+        background: "#336699",
+        color: "#ffffff",
+      },
+    }}
+  />
+);

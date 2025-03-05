@@ -2,12 +2,12 @@
   "name": "iot_backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
     "dev": "bun run src/index.ts",
     "build": "bun run tsc",
-    "start": "bun run dist/index.js"
+    "start": "bun run dist/index.ts"
   },
   "author": "",
   "license": "ISC",
