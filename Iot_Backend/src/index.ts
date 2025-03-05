@@ -1,13 +1,13 @@
 import express from "express";
 import "dotenv/config";
-import pmRouter from "./routes/pm.js";
-import influx from "./services/connect.js";
+import pmRouter from "./routes/pm"; 
+import influx from "./services/connect";
 import cors from "cors";
 
-import { corsOptions } from "./config/corsConfig.js";
-import { logger } from "./middleware/logger.js";
+import { corsOptions } from "./config/corsConfig";
+import { logger } from "./middleware/logger";
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors(corsOptions));
@@ -26,6 +26,6 @@ influx
 
 app.use("/pm", pmRouter);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
 });

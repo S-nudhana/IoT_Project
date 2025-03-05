@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import axiosInstance from "../utils/axiosInstance";
+import axiosInstance from "../Utils/axiosInstance";
 import { useParams, ScrollRestoration } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
@@ -7,8 +7,8 @@ import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import BackBTN from "../Components/BackBTN";
 
-import { allSensor } from "../utils/allSensor";
-import { AQI_Catagory } from "../utils/Calculation";
+import { allSensor } from "../Utils/allSensor";
+import { AQI_Catagory } from "../Utils/Calculation";
 
 interface Sensor {
   buildingRoom: string;
@@ -21,21 +21,28 @@ interface Sensor {
 export default function Detail() {
   const { Building } = useParams();
   const [pmData, setPmData] = useState<Record<string, any>>({});
-
+  const [outDoorPmData, setOutDoorPmData] = useState<Record<string, any>>({});
   const pmInfo = AQI_Catagory(pmData[Object.keys(pmData)[0]] ?? null);
-  const pmOutdoorInfo = AQI_Catagory(pmData[Object.keys(pmData)[1]] ?? null);
+  const pmOutdoorInfo = AQI_Catagory(outDoorPmData[Object.keys(outDoorPmData)[0]] ?? null);
   const building: Sensor[] = allSensor.filter(
     (item) => item.buildingRoom === Building
   );
   const outdoorBuilding: Sensor[] = allSensor.filter(
     (item) => item.outdoor === true && building[0]?.building === item.building
   );
-  const sameSensor:boolean = building[0]?.key === outdoorBuilding[0]?.key;
+  const sameSensor: boolean = building[0]?.key === outdoorBuilding[0]?.key;
 
-  const fetchData = useCallback(async (keys: string | string[]) => {
+  const fetchData = useCallback(async (keys: string | string[], type: string) => {
     try {
       const keyString = Array.isArray(keys) ? keys.join(",") : keys;
       const response = await axiosInstance.get(`/pm/getPm?id=${keyString}`);
+      if (type === "outdoor") {
+        setOutDoorPmData((prevData: any) => ({
+          ...prevData,
+          [keyString]: response.data.data,
+        }));
+        return;
+      }
       setPmData((prevData: any) => ({
         ...prevData,
         [keyString]: response.data.data,
@@ -46,10 +53,13 @@ export default function Detail() {
   }, []);
 
   useEffect(() => {
-    allSensor.forEach((card) => {
-      const keys = Array.isArray(card.key) ? card.key : [card.key];
-      fetchData(keys);
-    });
+    const keys = Array.isArray(building[0]?.key) ? building[0]?.key : [building[0]?.key];
+    fetchData(keys, "indoor");
+    if (sameSensor) return;
+    const outdoorKeys = Array.isArray(outdoorBuilding[0]?.key)
+      ? outdoorBuilding[0]?.key
+      : [outdoorBuilding[0]?.key];
+    fetchData(outdoorKeys, "outdoor");
   }, [fetchData]);
 
   return (
@@ -87,18 +97,19 @@ export default function Detail() {
               display: "flex",
               flexDirection: { xs: "column", sm: "row" },
               alignItems: "center",
+              gap: "30px"
             }}
           >
             <img
               src={pmInfo.image}
               alt="AQI picture"
-              className="w-[250px] h-[250px] rounded-full"
+              className="w-[230px] h-[230px] rounded-full"
             />
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: {xs: "center", sm: "start"},
+                justifyContent: { xs: "center", sm: "start" },
                 gap: "7px",
               }}
             >
@@ -128,21 +139,21 @@ export default function Detail() {
                   {pmInfo.description}
                 </span>
               </Typography>
-              <Box sx={{ display: "flex", flexDirection: "row", gap: "5px" }}>
-                <Typography>คำแนะนำ:</Typography>
+              <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: "5px" }}>
+                <Typography sx={{ fontWeight: "500" }}>คำแนะนำ: </Typography>
                 <Typography>{pmInfo.recommend}</Typography>
               </Box>
             </Box>
           </Box>
           <Box
             sx={{
-              display: sameSensor? "none" : "flex",
+              display: sameSensor ? "none" : "flex",
               flexDirection: "column",
               justifyContent: "center",
               width: { xs: "100%", md: "auto" },
               height: "fit-content",
               borderRadius: "15px",
-              padding: "20px",
+              padding: "10px 20px 20px",
               bgcolor: "#336699",
               color: "white",
             }}
