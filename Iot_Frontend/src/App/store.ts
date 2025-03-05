@@ -6,16 +6,16 @@ import { combineReducers } from "redux";
 import dataReducer from "../Features/dataSlice";
 
 const persistConfig = {
-  key: "root",
-  storage,
+    key: import.meta.env.REACT_APP_PERSIST_KEY || "root",
+    storage,
 };
 
 const rootReducer = combineReducers({
-  data: persistReducer(persistConfig, dataReducer),
+    data: persistReducer(persistConfig, dataReducer),
 });
 
 export const store = configureStore({
-  reducer: rootReducer,
+    reducer: rootReducer,
 });
 
 export const persistor = persistStore(store);
