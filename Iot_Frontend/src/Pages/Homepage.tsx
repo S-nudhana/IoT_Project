@@ -10,17 +10,17 @@ import {
   MenuItem,
 } from "@mui/material";
 
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
-import Header from "../Components/Header";
-import Card from "../Components/Card";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Card from "../components/Card";
 
-import { setData } from "../Features/dataSlice";
+import { setData } from "../features/dataSlice";
 
-import { RootState } from "../App/store";
+import { RootState } from "../app/store";
 
-import { allSensor } from "../Utils/allSensor";
-import axiosInstance from "../Utils/axiosInstance";
+import { allSensor } from "../utils/allSensor";
+import axiosInstance from "../utils/axiosInstance";
 
 interface Sensor {
   buildingRoom: string;

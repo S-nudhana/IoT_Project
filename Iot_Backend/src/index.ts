@@ -6,6 +6,7 @@ import cors from "cors";
 
 import { corsOptions } from "./config/corsConfig";
 import { logger } from "./middleware/logger";
+import { blockDirectAccess } from "./middleware/blockDirectAccess";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -14,6 +15,7 @@ app.use(cors(corsOptions));
 app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(blockDirectAccess);
 
 influx
   .getDatabaseNames()
