@@ -1,4 +1,4 @@
-import influx from "../services/connect.js";
+import influx from "../services/connect";
 import { Request, Response } from "express";
 
 interface PmRecord {
