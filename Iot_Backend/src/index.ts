@@ -13,6 +13,7 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(logger);
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 influx
   .getDatabaseNames()
@@ -23,7 +24,7 @@ influx
     console.error("Error connecting to InfluxDB:", err);
   });
 
-app.use("/pm", pmRouter);
+app.use("/api/pm", pmRouter);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
