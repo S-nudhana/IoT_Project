@@ -1,7 +1,7 @@
 import { Typography, Box, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { AQI_Catagory } from "../utils/Calculation";
+import { AQI_Catagory } from "../utils/Catagory";
 
 interface Sensor {
   buildingRoom: string;
