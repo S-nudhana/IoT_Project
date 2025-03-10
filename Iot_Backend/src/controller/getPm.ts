@@ -1,4 +1,3 @@
-console.log("first")
 import influx from "../services/connect";
 import { Request, Response } from "express";
 
