@@ -8,7 +8,7 @@ import BackBTN from "../components/BackBTN";
 
 import axiosInstance from "../utils/axiosInstance";
 import { allSensor } from "../utils/allSensor";
-import { AQI_Catagory } from "../utils/Calculation";
+import { AQI_Catagory } from "../utils/Catagory";
 
 interface Sensor {
   buildingRoom: string;
