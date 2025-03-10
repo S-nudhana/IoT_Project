@@ -94,7 +94,7 @@ export default function Home() {
             <Box
                 sx={{
                     width: { xs: "85%", sm: "93%", lg: "92%" },
-                    [theme.breakpoints.up('xxl')]: { width: '83%' },
+                    [theme.breakpoints.up('xxl')]: { width: '85%' },
                     display: "flex",
                     flexDirection: "column",
                     margin: "0 auto",
