@@ -1,6 +1,12 @@
 import { createTheme } from '@mui/material/styles';
 import { GlobalStyles } from '@mui/material';
 
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xxl: true;
+  }
+}
+
 export const theme = createTheme({
   typography: {
     fontFamily: ['Inter', 'Noto Sans Thai', 'sans-serif'].join(','),
@@ -12,9 +18,11 @@ export const theme = createTheme({
       md: 900,
       lg: 1200,
       xl: 1500,
+      xxl: 1800,
     },
   },
 });
+
 
 export const globalStyles = (
   <GlobalStyles
