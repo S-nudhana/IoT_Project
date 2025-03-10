@@ -1,3 +1,4 @@
+console.log("first")
 import influx from "../services/connect";
 import { Request, Response } from "express";
 
@@ -7,10 +8,9 @@ interface PmRecord {
 }
 
 async function getPm(req: Request, res: Response): Promise<Response> {
-  console.log("first")
   const ids: string[] = req.query.id ? (req.query.id).toString().split(",") : [];
   const now: Date = new Date();
-
+  
   try {
     const promises: Promise<PmRecord[]>[] = ids.map((id: string) =>
       influx.query(`SELECT * FROM "${id}" WHERE sensor='PM2.5' ORDER BY time DESC LIMIT 1`).then((result: any) => {
