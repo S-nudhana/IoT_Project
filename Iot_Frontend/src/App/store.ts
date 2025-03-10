@@ -1,9 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage/session";
 import { combineReducers } from "redux";
 
-import dataReducer from "../Features/dataSlice";
+import dataReducer from "../features/dataSlice";
 
 const persistConfig = {
     key: import.meta.env.REACT_APP_PERSIST_KEY || "root",
@@ -16,6 +16,12 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
     reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
+            },
+        }),
 });
 
 export const persistor = persistStore(store);

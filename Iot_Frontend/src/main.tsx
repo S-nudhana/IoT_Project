@@ -10,7 +10,7 @@ import './index.css';
 import { globalStyles, theme } from './theme';
 import { router } from './router';
 
-import { store, persistor } from "./App/store";
+import { store, persistor } from "./app/store";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

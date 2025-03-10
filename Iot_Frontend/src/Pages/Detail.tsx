@@ -1,14 +1,14 @@
 import { useEffect, useState, useCallback } from "react";
-import axiosInstance from "../Utils/axiosInstance";
 import { useParams, ScrollRestoration } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
-import BackBTN from "../Components/BackBTN";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import BackBTN from "../components/BackBTN";
 
-import { allSensor } from "../Utils/allSensor";
-import { AQI_Catagory } from "../Utils/Calculation";
+import axiosInstance from "../utils/axiosInstance";
+import { allSensor } from "../utils/allSensor";
+import { AQI_Catagory } from "../utils/Calculation";
 
 interface Sensor {
   buildingRoom: string;
@@ -23,7 +23,9 @@ export default function Detail() {
   const [pmData, setPmData] = useState<Record<string, any>>({});
   const [outDoorPmData, setOutDoorPmData] = useState<Record<string, any>>({});
   const pmInfo = AQI_Catagory(pmData[Object.keys(pmData)[0]] ?? null);
-  const pmOutdoorInfo = AQI_Catagory(outDoorPmData[Object.keys(outDoorPmData)[0]] ?? null);
+  const pmOutdoorInfo = AQI_Catagory(
+    outDoorPmData[Object.keys(outDoorPmData)[0]] ?? null
+  );
   const building: Sensor[] = allSensor.filter(
     (item) => item.buildingRoom === Building
   );
@@ -32,28 +34,33 @@ export default function Detail() {
   );
   const sameSensor: boolean = building[0]?.key === outdoorBuilding[0]?.key;
 
-  const fetchData = useCallback(async (keys: string | string[], type: string) => {
-    try {
-      const keyString = Array.isArray(keys) ? keys.join(",") : keys;
-      const response = await axiosInstance.get(`/pm/getPm?id=${keyString}`);
-      if (type === "outdoor") {
-        setOutDoorPmData((prevData: any) => ({
+  const fetchData = useCallback(
+    async (keys: string | string[], type: string) => {
+      try {
+        const keyString = Array.isArray(keys) ? keys.join(",") : keys;
+        const response = await axiosInstance.get(`/pm/getPm?id=${keyString}`);
+        if (type === "outdoor") {
+          setOutDoorPmData((prevData: any) => ({
+            ...prevData,
+            [keyString]: response.data.data,
+          }));
+          return;
+        }
+        setPmData((prevData: any) => ({
           ...prevData,
           [keyString]: response.data.data,
         }));
-        return;
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-      setPmData((prevData: any) => ({
-        ...prevData,
-        [keyString]: response.data.data,
-      }));
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }, []);
+    },
+    []
+  );
 
   useEffect(() => {
-    const keys = Array.isArray(building[0]?.key) ? building[0]?.key : [building[0]?.key];
+    const keys = Array.isArray(building[0]?.key)
+      ? building[0]?.key
+      : [building[0]?.key];
     fetchData(keys, "indoor");
     if (sameSensor) return;
     const outdoorKeys = Array.isArray(outdoorBuilding[0]?.key)
@@ -97,7 +104,7 @@ export default function Detail() {
               display: "flex",
               flexDirection: { xs: "column", sm: "row" },
               alignItems: "center",
-              gap: "30px"
+              gap: "30px",
             }}
           >
             <img
@@ -139,7 +146,13 @@ export default function Detail() {
                   {pmInfo.description}
                 </span>
               </Typography>
-              <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: "5px" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", md: "row" },
+                  gap: "5px",
+                }}
+              >
                 <Typography sx={{ fontWeight: "500" }}>คำแนะนำ: </Typography>
                 <Typography>{pmInfo.recommend}</Typography>
               </Box>
