@@ -7,7 +7,6 @@ interface PmRecord {
 }
 
 async function getPm(req: Request, res: Response): Promise<Response> {
-  console.log(req.query.id);
   const ids: string[] = req.query.id ? (req.query.id).toString().split(",") : [];
   const now: Date = new Date();
 
