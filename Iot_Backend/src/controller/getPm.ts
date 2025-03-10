@@ -1,18 +1,19 @@
-import { Request, Response } from "express";
 import influx from "../services/connect";
+import { Request, Response } from "express";
 
 interface PmRecord {
   time: string;
   value: number;
 }
 
-const getPm = async (req: Request, res: Response): Promise<void> => {
-  const ids: string[] = req.query.id ? (req.query.id as string).split(",") : [];
+async function getPm(req: Request, res: Response): Promise<Response> {
+  const ids: string[] = req.query.id ? (req.query.id).toString().split(",") : [];
   const now: Date = new Date();
 
   try {
     const promises: Promise<PmRecord[]>[] = ids.map((id: string) =>
       influx.query(`SELECT * FROM "${id}" WHERE sensor='PM2.5' ORDER BY time DESC LIMIT 1`).then((result: any) => {
+        console.log(result);
         return result.map((record: any) => ({
           time: record.time.toISOString(),
           value: record.value,
@@ -33,25 +34,25 @@ const getPm = async (req: Request, res: Response): Promise<void> => {
         return record.value;
       });
       const averageValue: number = Math.round(values.reduce((sum, value) => sum + value, 0) / divider);
-      res.json({
+      return res.json({
         success: true,
         data: averageValue,
       });
     } else {
-      res.json({
-        success: false,  
+      return res.json({
+        success: false,
         data: null,
         error: "No data found",
       });
     }
   } catch (error) {
     console.error("Error fetching data:", error);
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       data: null,
-      error: error,
+      error: "Internal server error",
     });
   }
-};
+}
 
 export default getPm;
