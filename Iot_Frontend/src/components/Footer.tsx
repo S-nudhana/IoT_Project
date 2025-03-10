@@ -81,7 +81,7 @@ export default function Footer() {
           fontWeight: 400,
         }}
       >
-        Â© 2025 School of Information Technology, King Mongkut's University of
+        © 2025 School of Information Technology, King Mongkut's University of
         Technology Thonburi.
       </Typography>
     </Box>
