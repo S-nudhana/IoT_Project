@@ -49,7 +49,7 @@ async function getPm(req: Request, res: Response): Promise<Response> {
     return res.status(500).json({
       success: false,
       data: null,
-      error: "Internal server error",
+      error: error,
     });
   }
 }
