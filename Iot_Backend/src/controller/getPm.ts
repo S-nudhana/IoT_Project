@@ -1,13 +1,13 @@
-import influx from "../services/connect";
 import { Request, Response } from "express";
+import influx from "../services/connect";
 
 interface PmRecord {
   time: string;
   value: number;
 }
 
-async function getPm(req: Request, res: Response): Promise<Response> {
-  const ids: string[] = req.query.id ? (req.query.id).toString().split(",") : [];
+const getPm = async (req: Request, res: Response): Promise<void> => {
+  const ids: string[] = req.query.id ? (req.query.id as string).split(",") : [];
   const now: Date = new Date();
 
   try {
@@ -33,12 +33,12 @@ async function getPm(req: Request, res: Response): Promise<Response> {
         return record.value;
       });
       const averageValue: number = Math.round(values.reduce((sum, value) => sum + value, 0) / divider);
-      return res.json({
+      res.json({
         success: true,
         data: averageValue,
       });
     } else {
-      return res.json({
+      res.json({
         success: false,  
         data: null,
         error: "No data found",
@@ -46,12 +46,12 @@ async function getPm(req: Request, res: Response): Promise<Response> {
     }
   } catch (error) {
     console.error("Error fetching data:", error);
-    return res.status(500).json({
+    res.status(500).json({
       success: false,
       data: null,
       error: error,
     });
   }
-}
+};
 
 export default getPm;
