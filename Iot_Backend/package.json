@@ -5,8 +5,9 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "bun run src/index.ts",
+    "build": "bun run tsc",
+    "start": "bun run dist/index.ts"
   },
   "author": "",
   "license": "ISC",
