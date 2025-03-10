@@ -21,6 +21,7 @@ import { RootState } from "../app/store";
 
 import { allSensor } from "../utils/allSensor";
 import axiosInstance from "../utils/axiosInstance";
+import { theme } from "../theme";
 
 interface Sensor {
   buildingRoom: string;
@@ -90,7 +91,8 @@ export default function App() {
       <Header />
       <Box
         sx={{
-          width: { xs: "85%", sm: "93%", lg: "92%", xxl: "85%" },
+          width: { xs: "85%", sm: "93%", lg: "92%" },
+          [theme.breakpoints.up('xxl')]: { width: '83%' },
           display: "flex",
           flexDirection: "column",
           margin: "0 auto",
@@ -118,6 +120,7 @@ export default function App() {
               const floor = getFloor(e.target.value);
               setFloor(floor);
               setSelectedFloor(floor[0]);
+              handleState(e.target.value, floor[0]);
             }}
           >
             <MenuItem value={"SIT"}>อาคารเทคโนโลยีสารสนเทศ (SIT)</MenuItem>
