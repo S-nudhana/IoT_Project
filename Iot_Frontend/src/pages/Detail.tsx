@@ -237,11 +237,13 @@ export default function Detail() {
             sx={{
               fontSize: { xs: "18px", md: "24px" },
               fontWeight: "600",
-              textAlign: "center",
+              display: "flex",
+              alignItems: "start",
+              gap: "5px",
             }}
           >
-            ประวัติของดัชนีคุณภาพอากาศ (
-            <Typography component="sub"> µg/m³</Typography>)
+            ประวัติของดัชนีคุณภาพอากาศ
+            <Typography component="sub"> (µg/m³)</Typography>
           </Typography>
           {building[0]?.chart ? (
             <iframe
