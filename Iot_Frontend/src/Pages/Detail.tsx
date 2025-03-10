@@ -56,7 +56,7 @@ export default function Detail() {
     },
     []
   );
-  console.log(building)
+  console.log(building);
   useEffect(() => {
     const keys = Array.isArray(building[0]?.key)
       ? building[0]?.key
@@ -227,19 +227,42 @@ export default function Detail() {
             borderRadius: "20px",
             display: "flex",
             flexDirection: "column",
-            justifyContent:"center",
-            alignItems: "center" ,
-            gap: {xs:"10px", md: "20px"},
+            justifyContent: "center",
+            alignItems: "center",
+            gap: { xs: "10px", md: "20px" },
             mb: "30px",
           }}
         >
-          <Typography sx={{ fontSize: {xs:"20px", md:"24px"}, fontWeight: "600", textAlign:"center" }}>
-          ประวัติของดัชนีคุณภาพอากาศ (มิลลิกรัม)
+          <Typography
+            sx={{
+              fontSize: { xs: "20px", md: "24px" },
+              fontWeight: "600",
+              textAlign: "center",
+            }}
+          >
+            ประวัติของดัชนีคุณภาพอากาศ (
+            <Typography component="sub"> µg/m³</Typography>)
           </Typography>
-          <iframe src={building[0]?.chart} className="w-full h-[300px] md:h-[500px]"></iframe>
+          {building[0]?.chart ? (
+            <iframe
+              src={building[0]?.chart}
+              className="w-full h-[300px] md:h-[500px]"
+            ></iframe>
+          ) : (
+            <Box
+              sx={{
+                width: "100%",
+                height: "50vh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Typography>*ไม่มีข้อมูลประวัติของดัชนีคุณภาพอากาศ</Typography>
+            </Box>
+          )}
         </Box>
       </Box>
-      
       <Footer />
     </Box>
   );
