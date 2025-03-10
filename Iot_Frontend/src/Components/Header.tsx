@@ -62,7 +62,7 @@ function Header() {
             mt: "10px",
             fontSize: {xs: "38px", sm: "60px", lg: "65px"},
             fontWeight: "600",
-            letterSpacing: "1px",
+            letterSpacing: {base: "0px", sm:"1px"},
           }}
         >
           <span className="bg-gradient-to-b from-[#4B79AE] to-[#04356C] bg-clip-text text-transparent">
