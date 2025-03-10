@@ -14,18 +14,18 @@ const app = express();
 
 app.use(cors(corsOptions));
 app.use(logger);
-app.use(express.json());
 
 influx
-  .getDatabaseNames()
-  .then((names) => {
-    console.log("Connected to InfluxDB!");
-  })
-  .catch((err) => {
-    console.error("Error connecting to InfluxDB:", err);
-  });
+.getDatabaseNames()
+.then((names) => {
+  console.log("Connected to InfluxDB!");
+})
+.catch((err) => {
+  console.error("Error connecting to InfluxDB:", err);
+});
 
-app.use("/api/pm", pmRouter);
+app.use(express.json());
+app.use("/pm", pmRouter);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
