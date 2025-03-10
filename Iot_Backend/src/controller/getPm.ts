@@ -6,7 +6,7 @@ interface PmRecord {
   value: number;
 }
 
-async function getPm(req: Request, res: Response): Promise<Response> {
+const getPm = async (req: Request, res: Response) => {
   const ids: string[] = req.query.id ? (req.query.id).toString().split(",") : [];
   const now: Date = new Date();
 
