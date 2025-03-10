@@ -155,7 +155,7 @@ export default function Detail() {
                   gap: "5px",
                 }}
               >
-                <Typography sx={{ fontWeight: "500" }}>คำแนะนำ: </Typography>
+                <Typography sx={{ fontWeight: "500" , width: "90px"}}>คำแนะนำ: </Typography>
                 <Typography>{pmInfo.recommend}</Typography>
               </Box>
             </Box>
@@ -197,8 +197,8 @@ export default function Detail() {
                 }}
               >
                 {pmOutdoorInfo.pm}
-                <Typography component="sub"> µg/m³</Typography>
               </Typography>
+                <Typography component="sub"> µg/m³</Typography>
             </Box>
             <Typography
               sx={{
