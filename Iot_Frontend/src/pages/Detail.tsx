@@ -79,7 +79,7 @@ export default function Detail() {
           alignItems: "center",
           flexDirection: "column",
           gap: "10px",
-          pt: "80px"
+          pt: "80px",
         }}
       >
         <Box sx={{ width: "85%", maxWidth: "1350px" }}>
@@ -152,11 +152,11 @@ export default function Detail() {
                 sx={{
                   display: "flex",
                   flexDirection: { xs: "column", md: "row" },
-                  gap: "5px",
                 }}
               >
-                <Typography sx={{ fontWeight: "500" , width: "90px"}}>คำแนะนำ: </Typography>
-                <Typography>{pmInfo.recommend}</Typography>
+                <Typography sx={{ fontWeight: "500" }}>
+                  คำแนะนำ:{" "} {pmInfo.recommend}
+                </Typography>
               </Box>
             </Box>
           </Box>
@@ -165,7 +165,7 @@ export default function Detail() {
               display: sameSensor ? "none" : "flex",
               flexDirection: "column",
               justifyContent: "center",
-              width: { xs: "100%", md: "auto" },
+              width: { xs: "100%", md: "280px" },
               height: "fit-content",
               borderRadius: "15px",
               padding: "10px 20px 20px",
@@ -198,7 +198,7 @@ export default function Detail() {
               >
                 {pmOutdoorInfo.pm}
               </Typography>
-                <Typography component="sub"> µg/m³</Typography>
+              <Typography component="sub"> µg/m³</Typography>
             </Box>
             <Typography
               sx={{
