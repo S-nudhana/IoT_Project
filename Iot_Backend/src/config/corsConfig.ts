@@ -2,6 +2,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const corsOptions = {
-  origin: process.env.PRODUCTION_ORIGIN,
+  origin: ["http://localhost:5173", "https://pm25project.sit.kmutt.ac.th"],
   credentials: true,
 };
