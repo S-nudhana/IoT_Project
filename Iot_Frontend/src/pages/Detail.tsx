@@ -56,7 +56,6 @@ export default function Detail() {
     },
     []
   );
-  console.log(building);
   useEffect(() => {
     const keys = Array.isArray(building[0]?.key)
       ? building[0]?.key
@@ -73,9 +72,6 @@ export default function Detail() {
     <Box>
       <ScrollRestoration />
       <Navbar />
-      <Box sx={{ pt: "80px" }}>
-        <BackBTN />
-      </Box>
       <Box
         sx={{
           display: "flex",
@@ -83,8 +79,12 @@ export default function Detail() {
           alignItems: "center",
           flexDirection: "column",
           gap: "10px",
+          pt: "80px"
         }}
       >
+        <Box sx={{ width: "85%", maxWidth: "1350px" }}>
+          <BackBTN />
+        </Box>
         <Box
           sx={{
             width: "85%",

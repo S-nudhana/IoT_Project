@@ -28,7 +28,7 @@ export default function Navbar() {
                     width: '100%',
                     margin: '0 auto',
                     px: { xs: "25px", lg: "50px" },
-                    py: 2.5,
+                    py: 2,
                     display: 'flex',
                     justifyContent: 'flex-start',
                     alignItems: 'center'
