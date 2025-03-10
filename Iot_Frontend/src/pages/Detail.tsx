@@ -235,7 +235,7 @@ export default function Detail() {
         >
           <Typography
             sx={{
-              fontSize: { xs: "20px", md: "24px" },
+              fontSize: { xs: "18px", md: "24px" },
               fontWeight: "600",
               textAlign: "center",
             }}
