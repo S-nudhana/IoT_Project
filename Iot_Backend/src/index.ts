@@ -6,11 +6,14 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { corsOptions } from "./config/corsConfig";
+import { logger } from "./middleware/logger";
+
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors(corsOptions));
+app.use(logger);
 
 influx
 .getDatabaseNames()
