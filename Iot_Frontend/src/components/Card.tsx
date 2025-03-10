@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import { AQI_Catagory } from "../utils/Catagory";
 
+import { theme } from "../theme";
+
 interface Sensor {
   buildingRoom: string;
   building: string;
@@ -27,6 +29,7 @@ export default function Card({ index, item, keyString, pmData }: CardProps) {
         key={index}
         sx={{
           width: { xs: "330px", sm: "365px", md: "320px", lg: "330px" },
+          [theme.breakpoints.up('xxl')]: { width: '380px' },
           height: "auto",
           backgroundColor: "white",
           borderRadius: "20px",

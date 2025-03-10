@@ -6,7 +6,7 @@ export default function BackBTN() {
   return (
     <Link
       to="/"
-      className="flex ml-[8%] my-[20px]"
+      className="flex my-[20px]"
     >
       <BsChevronLeft className="mt-[3px] stroke-1" />
       <Typography
