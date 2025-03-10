@@ -56,7 +56,7 @@ export default function Detail() {
     },
     []
   );
-
+  console.log(building)
   useEffect(() => {
     const keys = Array.isArray(building[0]?.key)
       ? building[0]?.key
@@ -81,6 +81,8 @@ export default function Detail() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          flexDirection: "column",
+          gap: "10px",
         }}
       >
         <Box
@@ -215,7 +217,29 @@ export default function Detail() {
             </Typography>
           </Box>
         </Box>
+        <Box
+          sx={{
+            width: "85%",
+            maxWidth: "1350px",
+            height: "auto",
+            padding: "20px",
+            bgcolor: "white",
+            borderRadius: "20px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent:"center",
+            alignItems: "center" ,
+            gap: {xs:"10px", md: "20px"},
+            mb: "30px",
+          }}
+        >
+          <Typography sx={{ fontSize: {xs:"20px", md:"24px"}, fontWeight: "600", textAlign:"center" }}>
+          ประวัติของดัชนีคุณภาพอากาศ (มิลลิกรัม)
+          </Typography>
+          <iframe src={building[0]?.chart} className="w-full h-[300px] md:h-[500px]"></iframe>
+        </Box>
       </Box>
+      
       <Footer />
     </Box>
   );
