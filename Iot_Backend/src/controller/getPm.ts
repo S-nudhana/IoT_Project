@@ -39,7 +39,7 @@ async function getPm(req: Request, res: Response): Promise<Response> {
       });
     } else {
       return res.json({
-        success: false,  
+        success: false,
         data: null,
         error: "No data found",
       });
