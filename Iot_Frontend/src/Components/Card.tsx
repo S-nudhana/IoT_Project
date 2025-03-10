@@ -1,6 +1,8 @@
 import { Typography, Box, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 
+import { theme } from "../theme";
+
 import { AQI_Catagory } from "../utils/Calculation";
 
 interface Sensor {
@@ -26,7 +28,7 @@ export default function Card({ index, item, keyString, pmData }: CardProps) {
       <Box
         key={index}
         sx={{
-          width: { xs: "330px",sm: "365px", md: "320px", lg: "330px" },
+          width: { xs: "330px", sm: "365px", md: "320px", lg: "330px" },
           height: "auto",
           backgroundColor: "white",
           borderRadius: "20px",
