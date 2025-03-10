@@ -39,7 +39,7 @@ async function getPm(req: Request, res: Response): Promise<Response> {
       });
     } else {
       return res.json({
-        success: false,
+        success: false,  
         data: null,
         error: "No data found",
       });
@@ -49,7 +49,7 @@ async function getPm(req: Request, res: Response): Promise<Response> {
     return res.status(500).json({
       success: false,
       data: null,
-      error: error,
+      error: "Internal server error",
     });
   }
 }

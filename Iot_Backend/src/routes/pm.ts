@@ -1,5 +1,5 @@
 import express from "express";
-import getPm from "../controller/getPm.js";
+import getPm from "../controller/getPm.ts";
 
 const pmRouter = express.Router();
 
