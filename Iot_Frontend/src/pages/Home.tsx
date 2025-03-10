@@ -47,6 +47,7 @@ export default function Home() {
                 ...prevData,
                 [keyString]: response.data.data,
             }));
+            console.log(response)
         } catch (error) {
             console.error("Error fetching data:", error);
         }
