@@ -1,11 +1,13 @@
 import express from "express";
-import "dotenv/config";
 import pmRouter from "./routes/pm"; 
 import influx from "./services/connect";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 
 import { corsOptions } from "./config/corsConfig";
 import { logger } from "./middleware/logger";
+
 
 const PORT = process.env.PORT || 3000;
 const app = express();
