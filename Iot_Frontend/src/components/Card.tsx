@@ -24,7 +24,7 @@ export default function Card({ index, item, keyString, pmData }: CardProps) {
   const pmInfo = AQI_Catagory(pmData[keyString]);
 
   return (
-    <Link to={`/detail/${encodeURIComponent(item.buildingRoom)}`}>
+    <Link to={`/detail/${item.building}/${item.floor}/${encodeURIComponent(item.buildingRoom)}`}>
       <Box
         key={index}
         sx={{

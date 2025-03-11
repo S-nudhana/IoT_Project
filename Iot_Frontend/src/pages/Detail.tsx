@@ -19,20 +19,20 @@ interface Sensor {
 }
 
 export default function Detail() {
-  const { Building } = useParams();
+  const { building, floor, room } = useParams();
   const [pmData, setPmData] = useState<Record<string, any>>({});
   const [outDoorPmData, setOutDoorPmData] = useState<Record<string, any>>({});
   const pmInfo = AQI_Catagory(pmData[Object.keys(pmData)[0]] ?? null);
   const pmOutdoorInfo = AQI_Catagory(
     outDoorPmData[Object.keys(outDoorPmData)[0]] ?? null
   );
-  const building: Sensor[] = allSensor.filter(
-    (item) => item.buildingRoom === Building
+  const indoorBuilding: Sensor[] = allSensor.filter(
+    (item) => room && item.buildingRoom === room && item.building === building && item.floor === Number(floor)
   );
   const outdoorBuilding: Sensor[] = allSensor.filter(
-    (item) => item.outdoor === true && building[0]?.building === item.building
+    (item) => item.outdoor === true && indoorBuilding[0]?.building === item.building
   );
-  const sameSensor: boolean = building[0]?.key === outdoorBuilding[0]?.key;
+  const sameSensor: boolean = indoorBuilding[0]?.key === outdoorBuilding[0]?.key;
 
   const fetchData = useCallback(
     async (keys: string | string[], type: string) => {
@@ -57,9 +57,9 @@ export default function Detail() {
     []
   );
   useEffect(() => {
-    const keys = Array.isArray(building[0]?.key)
-      ? building[0]?.key
-      : [building[0]?.key];
+    const keys = Array.isArray(indoorBuilding[0]?.key)
+      ? indoorBuilding[0]?.key
+      : [indoorBuilding[0]?.key];
     fetchData(keys, "indoor");
     if (sameSensor) return;
     const outdoorKeys = Array.isArray(outdoorBuilding[0]?.key)
@@ -125,7 +125,7 @@ export default function Detail() {
               <Typography
                 sx={{ fontSize: "24px", fontWeight: "600", color: "#336699" }}
               >
-                {building[0]?.buildingRoom}
+                {indoorBuilding[0]?.buildingRoom}
               </Typography>
               <Typography
                 sx={{
@@ -165,7 +165,7 @@ export default function Detail() {
               display: sameSensor ? "none" : "flex",
               flexDirection: "column",
               justifyContent: "center",
-              width: { xs: "100%", md: "280px" },
+              width: { xs: "100%", md: "250px" },
               height: "fit-content",
               borderRadius: "15px",
               padding: "10px 20px 20px",
@@ -245,9 +245,9 @@ export default function Detail() {
             ประวัติของดัชนีคุณภาพอากาศ
             <Typography component="sub"> (µg/m³)</Typography>
           </Typography>
-          {building[0]?.chart ? (
+          {indoorBuilding[0]?.chart ? (
             <iframe
-              src={building[0]?.chart}
+              src={indoorBuilding[0]?.chart}
               className="w-full h-[300px] md:h-[500px]"
             ></iframe>
           ) : (
