@@ -227,7 +227,7 @@ interface Sensor {
       building: "LX",
       floor: 11,
       key: "ESP8266-11",
-      chart: "https://pm25.sit.kmutt.ac.th/d-solo/urIEV9FHz/pm25_lx10-13?orgId=1&from=1741504685800&to=1741591085800&panelId=19",
+      chart: "https://pm25.sit.kmutt.ac.th/d-solo/urIEV9FHz/pm25_lx10-13?orgId=1&from=1741573132027&to=1741659532027&theme=light&panelId=19",
     },
     {
       buildingRoom: "LX 11/1",
