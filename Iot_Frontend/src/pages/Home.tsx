@@ -44,7 +44,6 @@ export default function Home() {
         try {
             const keyString = Array.isArray(keys) ? keys.join(",") : keys;
             const response = await axiosInstance.get(`/pm/getPm?id=${keyString}`);
-            console.log(response)
             setPmData((prevData: any) => ({
                 ...prevData,
                 [keyString]: response.data.data,
