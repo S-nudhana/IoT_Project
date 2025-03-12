@@ -24,24 +24,6 @@ influx
   console.error("Error connecting to InfluxDB:", err);
 });
 
-async function showMeasurements() {
-  try {
-    // Connect to InfluxDB
-    await influx.getDatabaseNames(); // Ensure connection by getting database names
-
-    // Execute SHOW MEASUREMENTS query
-    const measurements = await influx.getMeasurements();
-
-    // Print the list of measurements
-    console.log("Measurements (Tables):", measurements);
-  } catch (error) {
-    console.error("Error fetching measurements:", error);
-  }
-}
-
-// Call the function to execute the SHOW MEASUREMENTS query
-showMeasurements();
-
 app.use(express.json());
 app.use("/pm", pmRouter); 
 
