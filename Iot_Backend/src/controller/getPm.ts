@@ -12,7 +12,7 @@ async function getPm(req: Request, res: Response): Promise<Response> {
   
   try {
     const promises: Promise<PmRecord[]>[] = ids.map((id: string) =>
-      influx.query(`SELECT * FROM "${id}" WHERE sensor = 'PM2.5' ORDER BY time DESC LIMIT 1`).then((result: any) => {
+      influx.query(`SELECT * FROM "${id}" WHERE sensor='PM2.5' ORDER BY time DESC LIMIT 1`).then((result: any) => {
         return result.map((record: any) => ({
           time: record.time.toISOString(),
           value: record.value,
