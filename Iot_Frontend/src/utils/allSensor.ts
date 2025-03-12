@@ -55,14 +55,14 @@ interface Sensor {
       buildingRoom: "Hallway",
       building: "SIT",
       floor: 3,
-      key: ["ESP-8266-08", "CenterHall3_Xiaomi_4", "CenterHall3_Xiaomi_4_Pro_2"],
+      key: ["esp8266_08", "CenterHall3_Xiaomi_4", "CenterHall3_Xiaomi_4_Pro_2"],
       chart: "https://pm25.sit.kmutt.ac.th/d-solo/4-Ef79KHk/pm25_sit_building?from=1741503854002&to=1741590254002&orgId=1&theme=light&panelId=8",
     },
     {
       buildingRoom: "Infrastucture Office",
       building: "SIT",
       floor: 4,
-      key: ["ESP8266-09", "Infra_mi4pro-1", "Infra_mi4pro-2"],
+      key: ["esp8266_09", "Infra_mi4pro-1", "Infra_mi4pro-2"],
       chart: "https://pm25.sit.kmutt.ac.th/d-solo/4-Ef79KHk/pm25_sit_building?from=1741503820032&to=1741590220032&orgId=1&theme=light&panelId=22",
     },
     {
@@ -137,7 +137,7 @@ interface Sensor {
       buildingRoom: "CB 2308",
       building: "CB2",
       floor: 3,
-      key: ["ESP8266-07", "CB2308-1", "CB2308-2"],
+      key: ["esp8266_07", "CB2308-1", "CB2308-2"],
       chart:
         "https://pm25.sit.kmutt.ac.th/d-solo/wZjkjfa4k/pm2-5_with_esp32?orgId=1&theme=light&panelId=12",
     },
@@ -176,7 +176,7 @@ interface Sensor {
       buildingRoom: "Hallway",
       building: "LX",
       floor: 10,
-      key: "ESP8266-10",
+      key: "esp8266_10",
       chart: "https://pm25.sit.kmutt.ac.th/d-solo/urIEV9FHz/pm25_lx10-13?orgId=1&from=1741504613883&to=1741591013883&theme=light&panelId=17",
     },
     {
@@ -226,7 +226,7 @@ interface Sensor {
       buildingRoom: "Hallway",
       building: "LX",
       floor: 11,
-      key: "ESP8266-11",
+      key: "esp8266_11",
       chart: "https://pm25.sit.kmutt.ac.th/d-solo/urIEV9FHz/pm25_lx10-13?orgId=1&from=1741573132027&to=1741659532027&theme=light&panelId=19",
     },
     {
@@ -261,14 +261,14 @@ interface Sensor {
       buildingRoom: "Hallway",
       building: "LX",
       floor: 12,
-      key: "ESP8266-12",
+      key: "esp8266_12",
       chart: "https://pm25.sit.kmutt.ac.th/d-solo/urIEV9FHz/pm25_lx10-13?orgId=1&from=1741504711851&to=1741591111851&theme=light&panelId=21",
     },
     {
       buildingRoom: "LX 12/1",
       building: "LX",
       floor: 12,
-      key: "ESP8266-04",
+      key: "esp8266_04",
       chart: "https://pm25.sit.kmutt.ac.th/d-solo/urIEV9FHz/pm25_lx10-13?orgId=1&from=1741504545004&to=1741590945004&theme=light&panelId=4",
     },
     {
@@ -289,7 +289,7 @@ interface Sensor {
       buildingRoom: "LX 13/2",
       building: "LX",
       floor: 13,
-      key: "ESP8266-05",
+      key: "esp8266_05",
       chart: "https://pm25.sit.kmutt.ac.th/d-solo/urIEV9FHz/pm25_lx10-13?orgId=1&from=1741504568403&to=1741590968403&theme=light&panelId=2",
     },
   ];
