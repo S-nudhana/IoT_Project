@@ -3,7 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage/session";
 import { combineReducers } from "redux";
 
-import dataReducer from "../features/dataSlice";
+import dataReducer from "./slice/dataSlice";
 
 const persistConfig = {
     key: import.meta.env.REACT_APP_PERSIST_KEY || "root",

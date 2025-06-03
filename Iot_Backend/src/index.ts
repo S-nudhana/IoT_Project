@@ -5,7 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
-import { corsOptions } from "./config/corsConfig";
+import { corsOptions } from "./config/cors.Config";
 import { logger } from "./middleware/logger";
 
 
@@ -14,6 +14,8 @@ const app = express();
 
 app.use(cors(corsOptions));
 app.use(logger);
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 influx
 .getDatabaseNames()
@@ -24,7 +26,6 @@ influx
   console.error("Error connecting to InfluxDB:", err);
 });
 
-app.use(express.json());
 app.use("/pm", pmRouter); 
 
 app.listen(PORT, () => {

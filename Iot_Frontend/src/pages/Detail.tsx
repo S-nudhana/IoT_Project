@@ -9,14 +9,7 @@ import BackBTN from "../components/BackBTN";
 import axiosInstance from "../utils/axiosInstance";
 import { allSensor } from "../utils/allSensor";
 import { AQI_Catagory } from "../utils/Catagory";
-
-interface Sensor {
-  buildingRoom: string;
-  building: string;
-  floor: number;
-  key: string | string[];
-  chart: string;
-}
+import type { Sensor } from "../types/sensor";
 
 export default function Detail() {
   const { building, floor, room } = useParams();
