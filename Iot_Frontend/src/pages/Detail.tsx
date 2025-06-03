@@ -9,7 +9,20 @@ import BackBTN from "../components/BackBTN";
 import axiosInstance from "../utils/axiosInstance";
 import { allSensor } from "../utils/allSensor";
 import { AQI_Catagory } from "../utils/Catagory";
+<<<<<<< HEAD
 import type { Sensor } from "../types/sensor";
+=======
+
+import { theme } from "../theme";
+
+interface Sensor {
+  buildingRoom: string;
+  building: string;
+  floor: number;
+  key: string | string[];
+  chart: string;
+}
+>>>>>>> e1a83c5a6cbf76995885224a37c909eed2ca8dc2
 
 export default function Detail() {
   const { building, floor, room } = useParams();
@@ -75,13 +88,16 @@ export default function Detail() {
           pt: "80px",
         }}
       >
-        <Box sx={{ width: "85%", maxWidth: "1350px" }}>
+        <Box sx={{
+          width: { xs: "85%", sm: "93%", lg: "92%" },
+          [theme.breakpoints.up('xxl')]: { width: '85%' },
+        }}>
           <BackBTN />
         </Box>
         <Box
           sx={{
-            width: "85%",
-            maxWidth: "1350px",
+            width: { xs: "85%", sm: "93%", lg: "92%" },
+            [theme.breakpoints.up('xxl')]: { width: '85%' },
             height: "auto",
             padding: "20px",
             bgcolor: "white",
@@ -158,7 +174,7 @@ export default function Detail() {
               display: sameSensor ? "none" : "flex",
               flexDirection: "column",
               justifyContent: "center",
-              width: { xs: "100%", md: "250px" },
+              width: { xs: "100%", md: "auto" },
               height: "fit-content",
               borderRadius: "15px",
               padding: "10px 20px 20px",
@@ -212,8 +228,8 @@ export default function Detail() {
         </Box>
         <Box
           sx={{
-            width: "85%",
-            maxWidth: "1350px",
+            width: { xs: "85%", sm: "93%", lg: "92%" },
+            [theme.breakpoints.up('xxl')]: { width: '85%' },
             height: "auto",
             padding: "20px",
             bgcolor: "white",
