@@ -9,28 +9,18 @@ import {
     Select,
     MenuItem,
 } from "@mui/material";
+import { theme } from "../theme";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Card from "../components/Card";
 
-import { setData } from "../features/dataSlice";
-
-import { RootState } from "../apps/store";
-
+import { setData } from "../store/slice/dataSlice";
+import { RootState } from "../store/store";
 import { allSensor } from "../utils/allSensor";
 import axiosInstance from "../utils/axiosInstance";
-
-import { theme } from "../theme";
-
-interface Sensor {
-    buildingRoom: string;
-    building: string;
-    floor: number;
-    key: string | string[];
-    chart: string;
-}
+import type { Sensor } from "../types/sensor";
 
 export default function Home() {
     const dispatch = useDispatch();
