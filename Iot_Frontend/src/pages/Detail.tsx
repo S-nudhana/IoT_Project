@@ -2,23 +2,17 @@ import { useEffect, useState, useCallback } from "react";
 import { useParams, ScrollRestoration } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
+import type { Sensor } from "../types/sensor.type";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BackBTN from "../components/BackBTN";
 
 import axiosInstance from "../utils/axiosInstance";
 import { allSensor } from "../utils/allSensor";
-import { AQI_Catagory } from "../utils/Catagory";
+import { AQI_Catagory } from "../utils/catagory";
 
 import { theme } from "../theme";
-
-interface Sensor {
-  buildingRoom: string;
-  building: string;
-  floor: number;
-  key: string | string[];
-  chart: string;
-}
 
 export default function Detail() {
   const { building, floor, room } = useParams();

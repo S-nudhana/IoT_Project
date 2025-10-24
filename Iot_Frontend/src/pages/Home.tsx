@@ -15,6 +15,8 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Card from "../components/Card";
 
+import type { Sensor } from "../types/sensor.type";
+
 import { setData } from "../features/dataSlice";
 
 import { RootState } from "../apps/store";
@@ -23,14 +25,6 @@ import { allSensor } from "../utils/allSensor";
 import axiosInstance from "../utils/axiosInstance";
 
 import { theme } from "../theme";
-
-interface Sensor {
-    buildingRoom: string;
-    building: string;
-    floor: number;
-    key: string | string[];
-    chart: string;
-}
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -42,6 +36,7 @@ export default function Home() {
 
     const fetchData = useCallback(async (keys: string | string[]) => {
         try {
+            console.log(keys)
             const keyString = Array.isArray(keys) ? keys.join(",") : keys;
             const response = await axiosInstance.get(`/pm/getPm?id=${keyString}`);
             setPmData((prevData: any) => ({
@@ -207,3 +202,47 @@ export default function Home() {
         </>
     );
 }
+// import React, { useRef, useEffect, useState } from "react";
+
+// const Home: React.FC = () => {
+//   const iframeRef = useRef<HTMLIFrameElement>(null);
+//   const [pdfBlobUrl, setPdfBlobUrl] = useState<string>("");
+
+//   useEffect(() => {
+//     // Fetch the PDF and convert to blob URL
+//     fetch("/1749123584617_1745145957171_1731323819331_ict-challenge.pdf")
+//       .then((res) => res.blob())
+//       .then((blob) => {
+//         const url = URL.createObjectURL(blob);
+//         setPdfBlobUrl(url);
+//       })
+//       .catch((err) => console.error("Error loading PDF:", err));
+//   }, []);
+
+//   const handlePrint = () => {
+//     if (iframeRef.current) {
+//       iframeRef.current.contentWindow?.focus();
+//       iframeRef.current.contentWindow?.print();
+//     }
+//   };
+
+//   return (
+//     <div>
+//       {/* Hidden iframe for printing */}
+//       {pdfBlobUrl && (
+//         <iframe
+//           ref={iframeRef}
+//           src={pdfBlobUrl}
+//           style={{ display: "none" }}
+//           title="pdf-frame"
+//         ></iframe>
+//       )}
+
+//       <button onClick={handlePrint} disabled={!pdfBlobUrl}>
+//         Print PDF
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default Home;

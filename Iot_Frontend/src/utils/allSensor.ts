@@ -1,11 +1,4 @@
-interface Sensor {
-  buildingRoom: string;
-  building: string;
-  floor: number;
-  key: string | string[];
-  chart: string;
-  outdoor?: boolean;
-}
+import type { Sensor } from "../types/sensor.type";
 
 export const allSensor: Sensor[] = [
   {

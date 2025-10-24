@@ -1,7 +1,7 @@
 import { Typography, Box, Divider } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { AQI_Catagory } from "../utils/Catagory";
+import { AQI_Catagory } from "../utils/catagory";
 
 import { theme } from "../theme";
 
