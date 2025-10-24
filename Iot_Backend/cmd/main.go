@@ -3,6 +3,7 @@ package main
 import (
 	"Iot_Backend/internal/adapter"
 	"Iot_Backend/internal/adapter/handler/http"
+	"Iot_Backend/internal/adapter/handler"
 	"Iot_Backend/internal/core/service"
 	"fmt"
 	"github.com/gofiber/fiber/v2"
@@ -49,14 +50,15 @@ func main() {
 
 	influxRepo := adapter.NewInfluxPmAdapter(c, dbName)
 	pmService := service.NewPmService(influxRepo)
-	pmHandler := handler.NewHttpPmHandler(pmService)
+	pmHandler := http.NewHttpPmHandler(pmService)
 
 	app.Get("/api/test", func (c *fiber.Ctx) error {
 		return c.JSON(fiber.Map{
 			"message": "API is working",
 		})
 	})
-	app.Get("/api/pm/getPm", pmHandler.GetPm)
+    handler.PmRoutes(app, pmHandler)
+	// app.Get("/api/pm/getPm", pmHandler.GetPm)
 
 	app.Listen(":3000")
 }
