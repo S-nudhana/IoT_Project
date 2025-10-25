@@ -58,7 +58,6 @@ func main() {
 		})
 	})
     handler.PmRoutes(app, pmHandler)
-	// app.Get("/api/pm/getPm", pmHandler.GetPm)
 
 	app.Listen(":3000")
 }
